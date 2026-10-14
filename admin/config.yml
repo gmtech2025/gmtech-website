@@ -1,0 +1,30 @@
+
+backend:
+  name: github
+  repo: gmtech2025/gmtech-website
+  branch: main
+  base_url: https://THAY-BANG-URL-WORKER.workers.dev
+  auth_endpoint: auth
+
+site_url: https://gmtech.pages.dev
+display_url: https://gmtech.pages.dev
+locale: vi
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "posts"
+    label: "Bài viết"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Mô tả ngắn", name: "description", widget: "text" }
+      - { label: "Ảnh đại diện", name: "thumbnail", widget: "image", required: false }
+      - { label: "Danh mục", name: "category", widget: "string", default: "Kiến thức CNTT" }
+      - { label: "Nội dung", name: "body", widget: "markdown" }
