@@ -3,7 +3,7 @@ backend:
   name: github
   repo: gmtech2025/gmtech-website
   branch: main
-  base_url: https://THAY-BANG-URL-WORKER.workers.dev
+  base_url: https://gmtech-decap-auth.ndlamvn.workers.dev/
   auth_endpoint: auth
 
 site_url: https://gmtech.pages.dev
