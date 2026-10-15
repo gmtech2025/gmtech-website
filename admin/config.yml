@@ -1,10 +1,9 @@
-
 backend:
   name: github
   repo: gmtech2025/gmtech-website
   branch: main
-  base_url: https://gmtech-decap-auth.ndlamvn.workers.dev/
-  auth_endpoint: auth
+  base_url: https://gmtech-decap-auth.ndlamvn.workers.dev
+  auth_endpoint: /auth
 
 site_url: https://gmtech.pages.dev
 display_url: https://gmtech.pages.dev
