@@ -12,6 +12,7 @@ locale: vi
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+
 collections:
   - name: "posts"
     label: "Bài viết"
@@ -25,5 +26,27 @@ collections:
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Ảnh đại diện", name: "thumbnail", widget: "image", required: false }
-      - { label: "Danh mục", name: "category", widget: "string", default: "Kiến thức CNTT" }
+
+      - label: "Danh mục cha"
+        name: "category_parent"
+        widget: "select"
+        required: true
+        options:
+          - { label: "Quản trị hệ thống & mạng", value: "quan-tri-mang" }
+          - { label: "Sửa chữa & phần cứng", value: "sua-chua-phan-cung" }
+          - { label: "An toàn thông tin", value: "an-toan-thong-tin" }
+          - { label: "Giải pháp CNTT doanh nghiệp", value: "giai-phap-doanh-nghiep" }
+          - { label: "Phần mềm, AI & tự động hóa", value: "ai-tu-dong-hoa" }
+          - { label: "Đào tạo & hướng dẫn", value: "dao-tao" }
+
+      - { label: "Danh mục con", name: "category_child", widget: "string", required: false }
+
+      - label: "Thẻ bài viết"
+        name: "tags"
+        widget: "list"
+        required: true
+        field: { label: "Tên thẻ", name: "tag", widget: "string" }
+
+      - { label: "Danh mục cũ (tương thích dữ liệu)", name: "category", widget: "string", required: false }
+
       - { label: "Nội dung", name: "body", widget: "markdown" }
