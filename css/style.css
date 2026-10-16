@@ -698,3 +698,14 @@ footer { border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted)
   .gmtech-cms-card h3, .gmtech-sample-card .article-content h3,
   .gmtech-article-excerpt, .gmtech-sample-card .article-content p { min-height: 0; }
 }
+
+.gmtech-article-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef3f7, #dce6ed);
+  color: #7c91a2;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
