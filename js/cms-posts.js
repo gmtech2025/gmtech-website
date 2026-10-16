@@ -26,6 +26,8 @@
       const card = document.createElement("article");
       card.className = "article-card gmtech-cms-card";
       card.dataset.category = category;
+      card.dataset.parent = category;
+      card.dataset.child = child;
       card.dataset.search = [post.title, post.description, category, child, ...tags].join(" ");
 
       if (post.thumbnail) {
@@ -87,44 +89,89 @@
   function setupFilters() {
     const search = document.getElementById("articleSearch");
     const filterBox = document.getElementById("articleFilters");
+    const childSelect = document.getElementById("articleSubcategory");
     const count = document.getElementById("articleResultCount");
     const cards = Array.from(grid.querySelectorAll(".article-card"));
     if (!filterBox) return;
-    [...new Set(cards.map(card => card.dataset.category).filter(Boolean))].forEach(category => {
+
+    // Bài mẫu cũ vẫn được giữ lại; coi danh mục cũ là nhóm cha để không làm mất khả năng lọc.
+    cards.forEach(card => {
+      if (!card.dataset.parent) card.dataset.parent = card.dataset.category || "Khác";
+      if (!card.dataset.child) card.dataset.child = "";
+    });
+
+    const parents = [...new Set(cards.map(card => card.dataset.parent).filter(Boolean))];
+    parents.forEach(parent => {
+      if (filterBox.querySelector('[data-filter="' + CSS.escape(parent) + '"]')) return;
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "gmtech-filter-button";
-      btn.dataset.filter = category;
-      btn.textContent = category;
+      btn.dataset.filter = parent;
+      btn.textContent = parent;
       btn.setAttribute("aria-pressed", "false");
       filterBox.appendChild(btn);
     });
-    let active = "all";
+
+    let activeParent = "all";
+    let activeChild = "all";
+
+    function updateChildren() {
+      if (!childSelect) return;
+      const currentValue = activeChild;
+      const children = [...new Set(cards
+        .filter(card => activeParent === "all" || card.dataset.parent === activeParent)
+        .map(card => card.dataset.child)
+        .filter(Boolean))].sort((a, b) => a.localeCompare(b, "vi"));
+      childSelect.replaceChildren();
+      const allOption = document.createElement("option");
+      allOption.value = "all";
+      allOption.textContent = "Tất cả danh mục con";
+      childSelect.appendChild(allOption);
+      children.forEach(child => {
+        const option = document.createElement("option");
+        option.value = child;
+        option.textContent = child;
+        childSelect.appendChild(option);
+      });
+      activeChild = children.includes(currentValue) ? currentValue : "all";
+      childSelect.value = activeChild;
+      childSelect.disabled = children.length === 0;
+    }
+
     const apply = () => {
       const q = String(search?.value || "").trim().toLocaleLowerCase("vi");
       let shown = 0;
       cards.forEach(card => {
-        const categoryOK = active === "all" || card.dataset.category === active;
+        const parentOK = activeParent === "all" || card.dataset.parent === activeParent;
+        const childOK = activeChild === "all" || card.dataset.child === activeChild;
         const haystack = String(card.dataset.search || card.textContent).toLocaleLowerCase("vi");
-        const show = categoryOK && (!q || haystack.includes(q));
+        const show = parentOK && childOK && (!q || haystack.includes(q));
         card.hidden = !show;
         if (show) shown++;
       });
       if (emptyMessage) emptyMessage.hidden = shown > 0;
-      if (count) count.textContent = `${shown} bài viết`;
+      if (count) count.textContent = shown + (shown === 1 ? " bài viết" : " bài viết");
     };
+
     filterBox.addEventListener("click", event => {
       const btn = event.target.closest("button[data-filter]");
       if (!btn) return;
-      active = btn.dataset.filter;
-      filterBox.querySelectorAll("button").forEach(item => {
+      activeParent = btn.dataset.filter;
+      activeChild = "all";
+      filterBox.querySelectorAll("button[data-filter]").forEach(item => {
         const on = item === btn;
         item.classList.toggle("is-active", on);
         item.setAttribute("aria-pressed", String(on));
       });
+      updateChildren();
+      apply();
+    });
+    childSelect?.addEventListener("change", () => {
+      activeChild = childSelect.value;
       apply();
     });
     search?.addEventListener("input", apply);
+    updateChildren();
     apply();
   }
 
