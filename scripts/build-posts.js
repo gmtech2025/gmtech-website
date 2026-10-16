@@ -119,7 +119,7 @@ function makeSlug(value) {
     .replace(/^-+|-+$/g, "");
 }
 
-function makeArticlePage(post) {
+function makeArticlePage(post, allPosts = []) {
   const title = escapeHtml(post.title);
   const description = escapeHtml(post.description);
   const category = escapeHtml(post.category_parent_label || post.category);
@@ -133,10 +133,40 @@ function makeArticlePage(post) {
     : "";
 
   const image = post.thumbnail
-    ? `<img class="hero" src="${escapeHtml(post.thumbnail)}" alt="${title}">`
+    ? `<img class="hero" src="${escapeHtml(post.thumbnail)}" alt="${title}" loading="eager">`
     : "";
 
   const body = post.html || `<p>${escapeHtml(post.body)}</p>`;
+  const currentIndex = allPosts.findIndex(item => item.slug === post.slug);
+  const previous = currentIndex >= 0 ? allPosts[currentIndex + 1] : null;
+  const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const articleUrl = item => `/bai-viet/${encodeURIComponent(item.slug)}/`;
+  const navLink = (item, label, direction) => item
+    ? `<a class="post-step post-step-${direction}" href="${articleUrl(item)}"><span>${label}</span><strong>${escapeHtml(item.title)}</strong></a>`
+    : `<span class="post-step post-step-${direction} is-disabled"><span>${label}</span><strong>${direction === "previous" ? "Đây là bài cũ nhất" : "Đây là bài mới nhất"}</strong></span>`;
+
+  const relatedPosts = allPosts
+    .filter(item => item.slug !== post.slug)
+    .filter(item => {
+      const sameChild = post.category_child && item.category_child === post.category_child;
+      const sameParent = post.category_parent && item.category_parent === post.category_parent;
+      return sameChild || sameParent;
+    })
+    .slice(0, 3);
+
+  const relatedSection = relatedPosts.length
+    ? `<section class="post-related" aria-labelledby="post-related-title">
+        <h2 id="post-related-title">Bài viết liên quan</h2>
+        <div class="post-related-grid">
+          ${relatedPosts.map(item => `<a class="post-related-card" href="${articleUrl(item)}">
+            <span>${escapeHtml(item.category_parent_label || item.category || "Kiến thức CNTT")}</span>
+            <strong>${escapeHtml(item.title)}</strong>
+            ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
+            <em>Đọc bài viết →</em>
+          </a>`).join("")}
+        </div>
+      </section>`
+    : "";
 
   return `<!doctype html>
 <html lang="vi">
@@ -156,7 +186,6 @@ function makeArticlePage(post) {
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .post-page { max-width: 900px; margin: 0 auto; padding: 32px 20px 64px; }
-    .post-nav { margin-bottom: 28px; }
     .post-nav a, .post-back { color: #087fbd; text-decoration: none; }
     .post-title { line-height: 1.35; margin-bottom: 12px; overflow-wrap: anywhere; }
     .post-meta { color: #64748b; font-size: .95rem; margin-bottom: 24px; }
@@ -166,20 +195,28 @@ function makeArticlePage(post) {
     .post-body pre { overflow-x: auto; padding: 16px; background: #f1f5f9; border-radius: 8px; }
     .post-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
     .post-body th, .post-body td { border: 1px solid #cbd5e1; padding: 8px; }
-    .post-back { display: inline-block; margin-top: 32px; font-weight: 600; }
   </style>
 </head>
 <body>
   <main class="post-page">
-    <nav class="post-nav"><a href="/">← GMTECH — Trang chủ</a></nav>
+    <nav class="post-breadcrumbs" aria-label="Đường dẫn điều hướng">
+      <a href="/">Trang chủ</a><span aria-hidden="true">/</span>
+      <a href="/#articles">Bài viết</a><span aria-hidden="true">/</span>
+      <span aria-current="page">${title}</span>
+    </nav>
     <article>
       <p class="post-meta">${category}${date ? " · " + date : ""}</p>
       <h1 class="post-title">${title}</h1>
-      ${description ? `<p>${description}</p>` : ""}
+      ${description ? `<p class="post-description">${description}</p>` : ""}
       ${image}
       <div class="post-body">${body}</div>
     </article>
-    <a class="post-back" href="/">← Quay lại trang chủ GMTECH</a>
+    <nav class="post-pagination" aria-label="Điều hướng bài viết">
+      ${navLink(previous, "Bài trước", "previous")}
+      ${navLink(next, "Bài tiếp theo", "next")}
+    </nav>
+    ${relatedSection}
+    <a class="post-back" href="/#articles">← Quay lại danh sách bài viết</a>
   </main>
 </body>
 </html>`;
@@ -271,7 +308,7 @@ for (const post of posts) {
 
   fs.writeFileSync(
     path.join(articleDir, "index.html"),
-    makeArticlePage(post),
+    makeArticlePage(post, posts),
     "utf8"
   );
 }
