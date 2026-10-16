@@ -56,7 +56,8 @@
       link.textContent = "Đọc bài viết";
       link.href = `/bai-viet/${encodeURIComponent(post.slug)}/`;
 
-      content.append(meta, title, excerpt, link);
+      const classification = createClassification(post);
+      content.append(meta, classification, title, excerpt, link);
       card.appendChild(content);
       grid.appendChild(card);
     });
@@ -165,7 +166,8 @@
       formatDate(post.date)
     ].filter(Boolean).join(" · ");
 
-    content.append(heading, meta);
+    const classification = createClassification(post);
+    content.append(heading, meta, classification);
 
     if (post.thumbnail) {
       const image = document.createElement("img");
