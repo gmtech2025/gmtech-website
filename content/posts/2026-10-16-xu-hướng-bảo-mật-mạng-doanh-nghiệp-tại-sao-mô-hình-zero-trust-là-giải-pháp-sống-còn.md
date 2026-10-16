@@ -6,7 +6,7 @@ description: Khám phá cách tiếp cận mạng hiện đại giúp doanh nghi
   hạ tầng, cô lập rủi ro và bảo vệ dữ liệu toàn diện trước các mối đe dọa an
   ninh mạng ngày càng tinh vi.
 thumbnail: /assets/uploads/cybersecurity-network-dashboard.png
-category_parent: null
+category_parent: an-toan-thong-tin
 tags: []
 category: HẠ TẦNG MẠNG
 ---
