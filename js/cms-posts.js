@@ -37,8 +37,20 @@
         img.alt = post.title || "Ảnh bài viết GMTECH";
         img.loading = "lazy";
         img.decoding = "async";
-        img.addEventListener("error", () => img.remove());
+        img.addEventListener("error", () => {
+          const fallback = document.createElement("div");
+          fallback.className = "gmtech-article-image gmtech-article-image-placeholder";
+          fallback.setAttribute("aria-hidden", "true");
+          fallback.textContent = "GMTECH";
+          img.replaceWith(fallback);
+        }, { once: true });
         card.appendChild(img);
+      } else {
+        const fallback = document.createElement("div");
+        fallback.className = "gmtech-article-image gmtech-article-image-placeholder";
+        fallback.setAttribute("aria-hidden", "true");
+        fallback.textContent = "GMTECH";
+        card.appendChild(fallback);
       }
       const content = document.createElement("div");
       content.className = "gmtech-article-card-content";
