@@ -238,3 +238,57 @@ footer { border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted)
   .orbit-b { width: 230px; height: 115px; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 5px; }
 }
+
+/* GMTECH - bài viết được tải từ Decap CMS */
+.gmtech-cms-card {
+  min-width: 0;
+}
+
+.gmtech-cms-card .article-meta {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.gmtech-cms-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.gmtech-cms-card .article-read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.gmtech-post-dialog {
+  width: min(760px, calc(100% - 32px));
+  max-height: 85vh;
+  overflow: auto;
+  border: 1px solid #d9e2ef;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.gmtech-post-dialog::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+
+.gmtech-post-close {
+  display: block;
+  margin-left: auto;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.gmtech-post-content {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.gmtech-post-content h2 {
+  margin-top: 0.5rem;
+}
+
+.gmtech-post-body {
+  white-space: pre-wrap;
+}
