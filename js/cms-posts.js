@@ -66,19 +66,6 @@
   } catch (error) {
     console.error("GMTECH CMS:", error);
   }
-
-  function formatDate(value) {
-    if (!value) return "";
-
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return "";
-
-    return new Intl.DateTimeFormat("vi-VN", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }).format(date);
-  }
 // Thêm chức năng bắt đầu ...
   function createClassification(post) {
     const wrapper = document.createElement("div");
@@ -122,6 +109,19 @@
     return wrapper;
   }
   // Thêm chức năng kết thúc
+  function formatDate(value) {
+    if (!value) return "";
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+
+    return new Intl.DateTimeFormat("vi-VN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(date);
+  }
+
   function showPost(post) {
     let dialog = document.getElementById("gmtechPostDialog");
 
