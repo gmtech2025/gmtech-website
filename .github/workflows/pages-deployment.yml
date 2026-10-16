@@ -1,6 +1,5 @@
-
 name: Build and deploy GMTECH
-
+command: pages deploy dist --project-name=gmtech-website
 on:
   push:
     branches:
