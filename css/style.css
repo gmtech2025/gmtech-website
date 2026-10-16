@@ -709,3 +709,126 @@ footer { border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted)
   font-weight: 800;
   letter-spacing: 3px;
 }
+
+
+/* ===== GMTECH ARTICLE DETAIL NAVIGATION ===== */
+.post-page {
+  color: #172033;
+  background: #fff;
+}
+.post-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 28px;
+  color: #64748b;
+  font-size: .9rem;
+  overflow-wrap: anywhere;
+}
+.post-breadcrumbs a {
+  color: #087fbd;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.post-breadcrumbs a:hover,
+.post-breadcrumbs a:focus-visible,
+.post-back:hover,
+.post-back:focus-visible {
+  text-decoration: underline;
+}
+.post-breadcrumbs [aria-current="page"] {
+  color: #334155;
+  font-weight: 600;
+}
+.post-description {
+  color: #475569;
+  font-size: 1.08rem;
+}
+.post-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+.post-step {
+  display: flex;
+  min-width: 0;
+  min-height: 88px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid #dbe4ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #172033;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.post-step-next { text-align: right; }
+.post-step span,
+.post-related-card > span {
+  color: #64748b;
+  font-size: .8rem;
+}
+.post-step strong { line-height: 1.4; }
+.post-step:hover,
+.post-step:focus-visible,
+.post-related-card:hover,
+.post-related-card:focus-visible {
+  border-color: #0891b2;
+  outline-offset: 3px;
+}
+.post-step.is-disabled { color: #94a3b8; }
+.post-related { margin-top: 42px; }
+.post-related h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+.post-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.post-related-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+  padding: 16px;
+  border: 1px solid #dbe4ef;
+  border-radius: 10px;
+  background: #fff;
+  color: #172033;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.post-related-card strong { line-height: 1.45; }
+.post-related-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+.post-related-card em {
+  margin-top: auto;
+  padding-top: 8px;
+  color: #087fbd;
+  font-size: .9rem;
+  font-style: normal;
+  font-weight: 700;
+}
+.post-back {
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .post-page { padding: 22px 16px 44px; }
+  .post-pagination { grid-template-columns: 1fr; }
+  .post-step-next { text-align: left; }
+  .post-related-grid { grid-template-columns: 1fr; }
+}
