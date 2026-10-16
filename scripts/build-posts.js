@@ -209,13 +209,32 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
   }
   usedSlugs.add(slug);
 
+  const legacyCategory = String(data.category || "").trim();
+  const categoryParent = String(data.category_parent || "").trim();
+  const categoryChild = String(data.category_child || "").trim();
+
+  const rawTags = data.tags;
+  const tags = Array.isArray(rawTags)
+    ? rawTags.map((tag) => String(tag).trim()).filter(Boolean)
+    : typeof rawTags === "string"
+      ? rawTags.split(",").map((tag) => tag.trim()).filter(Boolean)
+      : [];
+
   return {
-    slug,
+    slug: path.basename(file, ".md"),
     title: String(data.title || path.basename(file, ".md")),
     date: toValidDate(data.date),
     description: String(data.description || ""),
     thumbnail: safeThumbnail(data.thumbnail),
-    category: String(data.category || "Kiến thức CNTT"),
+
+    // Giữ trường cũ để tương thích website hiện tại.
+    category: legacyCategory || categoryChild || categoryParent || "Kiến thức CNTT",
+
+    // Các trường phân loại mới.
+    category_parent: categoryParent,
+    category_child: categoryChild,
+    tags,
+
     body,
     html: cleanHtml(renderedHtml)
   };
