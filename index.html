@@ -149,8 +149,16 @@
           </div>
           <p>Kiến thức kỹ thuật, kinh nghiệm vận hành và tin tức từ GMTECH.</p>
         </div>
+        <div class="gmtech-article-tools">
+          <label class="gmtech-search-label" for="articleSearch">Tìm kiếm bài viết</label>
+          <input id="articleSearch" class="gmtech-article-search" type="search" placeholder="Nhập tiêu đề, nội dung hoặc thẻ..." autocomplete="off">
+          <div id="articleFilters" class="gmtech-article-filters" aria-label="Lọc bài viết theo danh mục">
+            <button class="gmtech-filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+          </div>
+          <p id="articleResultCount" class="gmtech-result-count" aria-live="polite"></p>
+        </div>
         <div id="articleGrid" class="article-grid"></div>
-        <p id="emptyArticles" hidden>Chưa có bài viết. Hãy thêm dữ liệu trong js/posts.js.</p>
+        <p id="emptyArticles" hidden>Chưa có bài viết phù hợp. Hãy thử từ khóa hoặc danh mục khác.</p>
       </div>
     </section>
 
