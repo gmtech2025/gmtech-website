@@ -1,5 +1,6 @@
+
 name: Build and deploy GMTECH
-command: pages deploy dist --project-name=gmtech-website
+
 on:
   push:
     branches:
@@ -12,6 +13,7 @@ permissions:
 
 jobs:
   build-and-deploy:
+    name: Build and deploy website
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build CMS posts
+      - name: Build website and CMS posts
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
@@ -34,5 +36,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=gmtech
+          command: pages deploy dist --project-name=gmtech
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
