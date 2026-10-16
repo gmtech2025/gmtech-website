@@ -122,7 +122,7 @@ function makeSlug(value) {
 function makeArticlePage(post) {
   const title = escapeHtml(post.title);
   const description = escapeHtml(post.description);
-  const category = escapeHtml(post.category);
+  const category = escapeHtml(post.category_parent_label || post.category);
   const date = post.date
     ? new Intl.DateTimeFormat("vi-VN", {
         year: "numeric",
@@ -211,6 +211,15 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
 
   const legacyCategory = String(data.category || "").trim();
   const categoryParent = String(data.category_parent || "").trim();
+  const categoryLabels = {
+    "quan-tri-mang": "Quản trị hệ thống & mạng",
+    "sua-chua-phan-cung": "Sửa chữa & phần cứng",
+    "an-toan-thong-tin": "An toàn thông tin",
+    "giai-phap-doanh-nghiep": "Giải pháp CNTT doanh nghiệp",
+    "ai-tu-dong-hoa": "Phần mềm, AI & tự động hóa",
+    "dao-tao": "Đào tạo & hướng dẫn"
+  };
+  const categoryParentLabel = categoryLabels[categoryParent] || categoryParent;
   const categoryChild = String(data.category_child || "").trim();
 
   const rawTags = data.tags;
@@ -228,10 +237,11 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
     thumbnail: safeThumbnail(data.thumbnail),
 
     // Giữ trường cũ để tương thích website hiện tại.
-    category: legacyCategory || categoryChild || categoryParent || "Kiến thức CNTT",
+    category: legacyCategory || categoryParentLabel || categoryChild || "Kiến thức CNTT",
 
     // Các trường phân loại mới.
     category_parent: categoryParent,
+    category_parent_label: categoryParentLabel,
     category_child: categoryChild,
     tags,
 

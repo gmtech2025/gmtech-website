@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const url = safeURL(post.url || "#contact");
 
       return `
-        <article class="article-card">
+        <article class="article-card gmtech-sample-card" data-category="${escapeHTML(post.category || "GMTECH")}" data-search="${escapeHTML([post.title, post.category, post.excerpt].join(" "))}">
           <div class="article-art" aria-hidden="true">
             ${escapeHTML(post.icon || "✦")}
           </div>
