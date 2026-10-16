@@ -78,7 +78,49 @@
       day: "2-digit"
     }).format(date);
   }
+// Thêm chức năng bắt đầu ...
+  function createClassification(post) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "gmtech-post-classification";
 
+    const parent = String(post.category_parent || "").trim();
+    const child = String(post.category_child || "").trim();
+
+    if (parent || child) {
+      const category = document.createElement("p");
+      category.className = "gmtech-post-categories";
+
+      category.textContent = [parent, child]
+        .filter(Boolean)
+        .join(" › ");
+
+      wrapper.appendChild(category);
+    }
+
+    const tags = Array.isArray(post.tags)
+      ? post.tags
+          .map((tag) => String(tag).trim())
+          .filter(Boolean)
+      : [];
+
+    if (tags.length > 0) {
+      const tagList = document.createElement("div");
+      tagList.className = "gmtech-post-tags";
+      tagList.setAttribute("aria-label", "Thẻ bài viết");
+
+      tags.forEach((tag) => {
+        const item = document.createElement("span");
+        item.className = "gmtech-post-tag";
+        item.textContent = tag;
+        tagList.appendChild(item);
+      });
+
+      wrapper.appendChild(tagList);
+    }
+
+    return wrapper;
+  }
+  // Thêm chức năng kết thúc
   function showPost(post) {
     let dialog = document.getElementById("gmtechPostDialog");
 
