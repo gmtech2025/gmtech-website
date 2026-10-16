@@ -52,13 +52,13 @@ window.GMTECH_RESOURCES = [
   {
     title: "YouTube",
     description: "Video hướng dẫn và chia sẻ kỹ thuật",
-    url: "https://www.youtube.com/",
+    url: "https://www.youtube.com/@nguyenvincent9483",
     icon: "▶"
   },
   {
     title: "Facebook",
     description: "Tin tức và hoạt động GMTECH",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/laptopquangngai.gmtech",
     icon: "f"
   },
   {
@@ -70,7 +70,7 @@ window.GMTECH_RESOURCES = [
   {
     title: "GitHub",
     description: "Mã nguồn và dự án công nghệ",
-    url: "https://github.com/",
+    url: "https://github.com/gmtech2025",
     icon: "↗"
   }
 ];
