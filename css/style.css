@@ -483,3 +483,28 @@ footer { border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted)
     min-height: 44px;
   }
 }
+
+
+/* ===== GMTECH KNOWLEDGE HUB ===== */
+.gmtech-article-tools{margin:0 0 24px;padding:20px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,rgba(16,43,72,.85),rgba(7,24,46,.92))}
+.gmtech-search-label{display:block;margin-bottom:8px;font-size:13px;font-weight:700}
+.gmtech-article-search{display:block;width:100%;min-height:46px;padding:12px 14px;border:1px solid rgba(137,190,220,.32);border-radius:8px;background:#f8fbff;color:#172033;font:inherit;outline-offset:3px}
+.gmtech-article-search:focus{border-color:var(--cyan)}
+.gmtech-article-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.gmtech-filter-button{border:1px solid rgba(137,190,220,.32);border-radius:999px;padding:7px 12px;background:transparent;color:var(--white);font:inherit;font-size:12px;cursor:pointer}
+.gmtech-filter-button:hover,.gmtech-filter-button.is-active{color:var(--navy);background:var(--cyan);border-color:var(--cyan)}
+.gmtech-result-count{margin:10px 0 0;color:var(--muted);font-size:12px}
+.article-card[hidden]{display:none!important}
+.gmtech-cms-card{min-width:0;min-height:100%;display:flex;flex-direction:column}
+.gmtech-cms-card .gmtech-article-image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0;background:#102b48}
+.gmtech-article-card-content{display:flex;flex:1;flex-direction:column;align-items:flex-start;min-width:0;padding:18px}
+.gmtech-cms-card .article-meta{margin:0 0 8px;color:var(--cyan);font-size:11px;line-height:1.5;letter-spacing:.25px;opacity:1}
+.gmtech-cms-card h3,.gmtech-sample-card .article-content h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4.5em;margin:4px 0 10px;font-size:17px;line-height:1.5;overflow-wrap:anywhere}
+.gmtech-article-excerpt,.gmtech-sample-card .article-content p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;min-height:6.6em;margin:0 0 16px;color:var(--muted);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.gmtech-post-classification{display:flex;flex-direction:column;gap:8px;margin:0 0 10px}
+.gmtech-post-child{color:#c9e8f6;font-size:11px}
+.gmtech-post-tags{display:flex;flex-wrap:wrap;gap:6px}
+.gmtech-post-tag{display:inline-flex;padding:3px 8px;border:1px solid rgba(0,229,255,.24);border-radius:999px;color:#bceef7;background:rgba(0,229,255,.07);font-size:10px}
+.gmtech-cms-card .article-read-more{margin-top:auto;padding:9px 13px;border:1px solid rgba(0,229,255,.5);border-radius:7px;color:var(--cyan);font-size:12px}
+.gmtech-cms-card .article-read-more:hover{background:var(--cyan);color:var(--navy)}
+@media(max-width:620px){.gmtech-article-tools{padding:14px}.gmtech-filter-button{font-size:11px}.gmtech-cms-card h3,.gmtech-sample-card .article-content h3,.gmtech-article-excerpt,.gmtech-sample-card .article-content p{min-height:0}}
