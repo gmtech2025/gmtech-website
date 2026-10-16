@@ -1,43 +1,53 @@
+
 const fs = require("node:fs");
 const path = require("node:path");
 const matter = require("gray-matter");
+const { marked } = require("marked");
 
-const postsDir = path.join(process.cwd(), "content", "posts");
-const outputDir = path.join(process.cwd(), "data");
+const root = process.cwd();
+const postsDir = path.join(root, "content", "posts");
+const outputDir = path.join(root, "data");
 const outputFile = path.join(outputDir, "posts.json");
 
-function walkMarkdown(dir) {
+function findMarkdownFiles(dir) {
   if (!fs.existsSync(dir)) return [];
 
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const fullPath = path.join(dir, entry.name);
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((item) => {
+    const fullPath = path.join(dir, item.name);
 
-    if (entry.isDirectory()) return walkMarkdown(fullPath);
-    if (entry.isFile() && entry.name.endsWith(".md")) return [fullPath];
-
+    if (item.isDirectory()) return findMarkdownFiles(fullPath);
+    if (item.isFile() && item.name.toLowerCase().endsWith(".md")) {
+      return [fullPath];
+    }
     return [];
   });
 }
 
-const posts = walkMarkdown(postsDir).map((file) => {
-  const raw = fs.readFileSync(file, "utf8");
-  const parsed = matter(raw);
+const posts = findMarkdownFiles(postsDir).map((file) => {
+  const parsed = matter(fs.readFileSync(file, "utf8"));
   const data = parsed.data;
+  const slug = path.basename(file, ".md");
+  const body = parsed.content.trim();
 
   return {
-    title: data.title || path.basename(file, ".md"),
-    date: data.date || "",
-    description: data.description || "",
-    thumbnail: data.thumbnail || "",
-    category: data.category || "Kiến thức CNTT",
-    body: parsed.content.trim(),
-    slug: path.basename(file, ".md")
+    slug,
+    title: String(data.title || slug),
+    date: data.date ? new Date(data.date).toISOString() : "",
+    description: String(data.description || ""),
+    thumbnail: String(data.thumbnail || ""),
+    category: String(data.category || "Kiến thức CNTT"),
+    body,
+    html: marked.parse(body)
   };
 });
 
-posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+posts.sort((a, b) => {
+  const dateA = Date.parse(a.date) || 0;
+  const dateB = Date.parse(b.date) || 0;
+  return dateB - dateA;
+});
 
 fs.mkdirSync(outputDir, { recursive: true });
 fs.writeFileSync(outputFile, JSON.stringify(posts, null, 2), "utf8");
 
-console.log(`Đã tạo ${outputFile} với ${posts.length} bài viết.`);
+console.log(`Build thành công: ${posts.length} bài CMS.`);
