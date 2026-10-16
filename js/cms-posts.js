@@ -6,49 +6,78 @@
   if (!grid) return;
 
   try {
-    const response = await fetch("/data/posts.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("Không tải được data/posts.json");
+    const response = await fetch("/data/posts.json", {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Không tải được data/posts.json");
+    }
 
     const posts = await response.json();
 
     if (!Array.isArray(posts) || posts.length === 0) return;
 
-    // Không xóa các bài mẫu hiện có.
     posts.forEach((post) => {
       const card = document.createElement("article");
       card.className = "article-card gmtech-cms-card";
 
-      const title = document.createElement("h3");
-      title.textContent = post.title || "Bài viết GMTECH";
+      if (post.thumbnail) {
+        const image = document.createElement("img");
+        image.className = "gmtech-article-image";
+        image.src = post.thumbnail;
+        image.alt = post.title || "Bài viết GMTECH";
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        image.addEventListener("error", () => image.remove());
+        card.appendChild(image);
+      }
+
+      const content = document.createElement("div");
+      content.className = "gmtech-article-card-content";
 
       const meta = document.createElement("p");
       meta.className = "article-meta";
       meta.textContent = [
         post.category || "Kiến thức CNTT",
-        post.date ? new Date(post.date).toLocaleDateString("vi-VN") : ""
+        formatDate(post.date)
       ].filter(Boolean).join(" · ");
 
+      const title = document.createElement("h3");
+      title.textContent = post.title || "Bài viết GMTECH";
+
       const excerpt = document.createElement("p");
+      excerpt.className = "gmtech-article-excerpt";
       excerpt.textContent = post.description || "";
 
-      const link = document.createElement("a");
-      link.href = "#";
-      link.textContent = "Đọc bài viết";
+      const link = document.createElement("button");
+      link.type = "button";
       link.className = "article-read-more";
+      link.textContent = "Đọc bài viết";
+      link.addEventListener("click", () => showPost(post));
 
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        showPost(post);
-      });
-
-      card.append(meta, title, excerpt, link);
+      content.append(meta, title, excerpt, link);
+      card.appendChild(content);
       grid.appendChild(card);
     });
 
     if (emptyMessage) emptyMessage.hidden = true;
   } catch (error) {
     console.error("GMTECH CMS:", error);
-    // Không xóa các bài mẫu nếu dữ liệu CMS chưa tải được.
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+
+    return new Intl.DateTimeFormat("vi-VN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(date);
   }
 
   function showPost(post) {
@@ -58,18 +87,27 @@
       dialog = document.createElement("dialog");
       dialog.id = "gmtechPostDialog";
       dialog.className = "gmtech-post-dialog";
-      dialog.innerHTML = `
-        <button type="button" class="gmtech-post-close" aria-label="Đóng">Đóng ✕</button>
-        <div class="gmtech-post-content"></div>
-      `;
+
+      const closeButton = document.createElement("button");
+      closeButton.type = "button";
+      closeButton.className = "gmtech-post-close";
+      closeButton.textContent = "Đóng ✕";
+      closeButton.setAttribute("aria-label", "Đóng bài viết");
+
+      const content = document.createElement("article");
+      content.className = "gmtech-post-content";
+
+      dialog.append(closeButton, content);
       document.body.appendChild(dialog);
 
-      dialog.querySelector(".gmtech-post-close").addEventListener("click", () => {
-        dialog.close();
-      });
+      closeButton.addEventListener("click", () => dialog.close());
 
       dialog.addEventListener("click", (event) => {
         if (event.target === dialog) dialog.close();
+      });
+
+      dialog.addEventListener("close", () => {
+        document.body.style.overflow = "";
       });
     }
 
@@ -79,19 +117,38 @@
     const heading = document.createElement("h2");
     heading.textContent = post.title || "Bài viết GMTECH";
 
-    const category = document.createElement("p");
-    category.className = "article-meta";
-    category.textContent = post.category || "Kiến thức CNTT";
+    const meta = document.createElement("p");
+    meta.className = "article-meta";
+    meta.textContent = [
+      post.category || "Kiến thức CNTT",
+      formatDate(post.date)
+    ].filter(Boolean).join(" · ");
+
+    content.append(heading, meta);
+
+    if (post.thumbnail) {
+      const image = document.createElement("img");
+      image.className = "gmtech-post-hero";
+      image.src = post.thumbnail;
+      image.alt = post.title || "Ảnh bài viết GMTECH";
+      image.loading = "lazy";
+      image.addEventListener("error", () => image.remove());
+      content.appendChild(image);
+    }
 
     const body = document.createElement("div");
     body.className = "gmtech-post-body";
 
-    // Hiển thị nội dung an toàn dưới dạng văn bản.
-    // Bản đầu tiên giữ nguyên Markdown; sau này có thể nâng cấp
-    // sang hiển thị định dạng Markdown đã được làm sạch.
-    body.textContent = post.body || "";
+    // Chỉ dùng HTML đã được làm sạch ở bước build.
+    // Nếu không có HTML, hiển thị nội dung như văn bản thuần.
+    if (typeof post.html === "string" && post.html.trim()) {
+      body.innerHTML = post.html;
+    } else {
+      body.textContent = post.body || "";
+    }
 
-    content.append(heading, category, body);
+    content.appendChild(body);
+    document.body.style.overflow = "hidden";
     dialog.showModal();
   }
 })();
