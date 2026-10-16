@@ -51,11 +51,10 @@
       excerpt.className = "gmtech-article-excerpt";
       excerpt.textContent = post.description || "";
 
-      const link = document.createElement("button");
-      link.type = "button";
+      const link = document.createElement("a");
       link.className = "article-read-more";
       link.textContent = "Đọc bài viết";
-      link.addEventListener("click", () => showPost(post));
+      link.href = `/bai-viet/${encodeURIComponent(post.slug)}/`;
 
       content.append(meta, title, excerpt, link);
       card.appendChild(content);
