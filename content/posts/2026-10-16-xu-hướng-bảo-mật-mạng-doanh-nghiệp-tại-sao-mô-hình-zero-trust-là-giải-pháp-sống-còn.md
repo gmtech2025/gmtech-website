@@ -6,6 +6,9 @@ description: Khám phá cách tiếp cận mạng hiện đại giúp doanh nghi
   hạ tầng, cô lập rủi ro và bảo vệ dữ liệu toàn diện trước các mối đe dọa an
   ninh mạng ngày càng tinh vi.
 thumbnail: /assets/uploads/cybersecurity-network-dashboard.png
+category_parent: an-toan-thong-tin
+tags:
+  - "#attt #gmtech"
 category: HẠ TẦNG MẠNG
 ---
 Trong kỷ nguyên chuyển đổi số mạnh mẽ, hạ tầng công nghệ thông tin (IT) chính là “trái tim” vận hành của mọi doanh nghiệp. Tuy nhiên, việc mở rộng không gian mạng đi kèm với những thách thức lớn về an ninh bảo mật. Các mô hình tường lửa truyền thống dựa trên ranh giới biên (Perimeter Security) dần bộc lộ nhiều điểm yếu trước các cuộc tấn công tinh vi. 
