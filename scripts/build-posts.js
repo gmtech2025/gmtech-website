@@ -316,10 +316,13 @@ for (const post of posts) {
 
 function buildCatalog(collectionName, outputName) {
   const folder = path.join(root, "content", collectionName);
+  const catalogSlugs = new Set();
   const entries = findMarkdownFiles(folder).map((file) => {
     const parsed = matter(fs.readFileSync(file, "utf8"));
     const data = parsed.data;
     const baseSlug = makeSlug(data.slug || path.basename(file, ".md")) || collectionName;
+    if (catalogSlugs.has(baseSlug)) throw new Error("Trùng slug danh mục: " + baseSlug);
+    catalogSlugs.add(baseSlug);
     return {
       slug: baseSlug,
       title: String(data.title || baseSlug),
@@ -340,6 +343,26 @@ function buildCatalog(collectionName, outputName) {
     };
   }).filter(item => item.published);
   fs.writeFileSync(path.join(dataDir, outputName), JSON.stringify(entries, null, 2), "utf8");
+  const route = collectionName === "products" ? "san-pham" : "dich-vu";
+  for (const item of entries) {
+    const dir = path.join(dist, route, item.slug);
+    fs.mkdirSync(dir, {recursive:true});
+    const specLines = [["cpu","CPU"],["ram","RAM"],["storage","Lưu trữ"],["display","Màn hình"]]
+      .filter(([key]) => item[key]).map(([key,label]) => `<li>${label}: ${escapeHtml(item[key])}</li>`).join("");
+    const details = (specLines ? `<ul>${specLines}</ul>` : "") +
+      (collectionName === "products" ? `<p>Giá: ${escapeHtml(item.is_sample ? "Liên hệ xác nhận" : item.price || "Liên hệ")}. Tình trạng: ${item.availability === "in-stock" && !item.is_sample ? "Còn hàng (theo cập nhật)" : "Liên hệ xác nhận"}.</p>` : "") +
+      (item.is_sample ? "<p>Thông tin minh họa; liên hệ xác nhận trước khi đặt mua hoặc sử dụng dịch vụ.</p>" : "") +
+      (item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">` : "") +
+      cleanHtml(marked.parse(item.body || item.description)) +
+      '<p><a href="https://zalo.me/0908215486">Trao đổi qua Zalo</a> · <a href="tel:0908215486">Gọi 0908 215 486</a></p>';
+    let page = makeArticlePage({...item, date:"", thumbnail:"", html:details});
+    page = page.replaceAll(`/bai-viet/${encodeURIComponent(item.slug)}/`, `/${route}/${encodeURIComponent(item.slug)}/`)
+      .replaceAll('/#articles', collectionName === "products" ? '/#products' : '/#services')
+      .replace('>Bài viết</a>', collectionName === "products" ? '>Sản phẩm</a>' : '>Dịch vụ</a>')
+      .replace(/<nav class="post-pagination"[\s\S]*?<\/nav>/, "")
+      .replace('Quay lại danh sách bài viết', 'Quay lại danh mục');
+    fs.writeFileSync(path.join(dir, "index.html"), page);
+  }
   return entries.length;
 }
 const productCount = buildCatalog("products", "products.json");
@@ -349,3 +372,15 @@ console.log(`Build thành công: ${posts.length} bài CMS.`);
 console.log(`Đã tạo ${productCount} sản phẩm và ${serviceCount} dịch vụ CMS.`);
 console.log("Đã tạo trang chi tiết trong dist/bai-viet/");
 console.log("Thư mục triển khai: dist/");
+
+// Preserve the three original article cards with real, shareable detail URLs.
+const legacyScope = {window:{}};
+require("node:vm").runInNewContext(fs.readFileSync(path.join(root,"js/posts.js"),"utf8"),legacyScope);
+for (const item of legacyScope.window.GMTECH_POSTS || []) {
+  if (!/^\/bai-viet\/[a-z0-9-]+\/$/.test(item.url)) continue;
+  const slug = item.url.split("/")[2];
+  const dir = path.join(dist,"bai-viet",slug);
+  if (fs.existsSync(dir)) throw new Error("Trùng URL bài viết: " + slug);
+  fs.mkdirSync(dir,{recursive:true});
+  fs.writeFileSync(path.join(dir,"index.html"),makeArticlePage({...item,slug,date:item.date,description:item.excerpt,html:`<p>${escapeHtml(item.excerpt)}</p><p><a href="/#services">Xem dịch vụ GMTECH</a> · <a href="/#contact">Trao đổi nhu cầu</a></p>`}));
+}
