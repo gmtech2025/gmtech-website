@@ -313,6 +313,34 @@ for (const post of posts) {
   );
 }
 
-console.log(`Build thành công: ${posts.length} bài CMS.`);
+
+function buildCatalog(collectionName, outputName) {
+  const folder = path.join(root, "content", collectionName);
+  const entries = findMarkdownFiles(folder).map((file) => {
+    const parsed = matter(fs.readFileSync(file, "utf8"));
+    const data = parsed.data;
+    const baseSlug = makeSlug(data.slug || path.basename(file, ".md")) || collectionName;
+    return {
+      slug: baseSlug,
+      title: String(data.title || baseSlug),
+      category: String(data.category || ""),
+      description: String(data.description || ""),
+      image: safeThumbnail(data.image),
+      price: String(data.price || ""),
+      sku: String(data.sku || ""),
+      availability: String(data.availability || "unconfirmed"),
+      icon: String(data.icon || "✦"),
+      is_sample: data.is_sample === true || String(data.is_sample).toLowerCase() === "true",
+      published: data.published !== false && String(data.published).toLowerCase() !== "false",
+      body: parsed.content.trim()
+    };
+  }).filter(item => item.published);
+  fs.writeFileSync(path.join(dataDir, outputName), JSON.stringify(entries, null, 2), "utf8");
+  return entries.length;
+}
+const productCount = buildCatalog("products", "products.json");
+const serviceCount = buildCatalog("services", "services.json");
+
+console.log(`Build thành công: ${posts.length} bài CMS.`);\nconsole.log(`Đã tạo ${productCount} sản phẩm và ${serviceCount} dịch vụ CMS.`);
 console.log("Đã tạo trang chi tiết trong dist/bai-viet/");
 console.log("Thư mục triển khai: dist/");
