@@ -20,7 +20,7 @@ window.GMTECH_POSTS = [
     date: "2026-10-14",
     category: "GMTECH",
     excerpt: "Giải pháp hỗ trợ người dùng, quản lý thiết bị và vận hành hệ thống CNTT cho doanh nghiệp.",
-    url: "#contact",
+    url: "/bai-viet/gioi-thieu-it-outsourcing-gmtech/",
     icon: "✦"
   },
   {
@@ -28,7 +28,7 @@ window.GMTECH_POSTS = [
     date: "2026-10-14",
     category: "HẠ TẦNG MẠNG",
     excerpt: "Các hạng mục nên khảo sát trước khi thiết kế hoặc cải tiến hệ thống mạng.",
-    url: "#services",
+    url: "/bai-viet/checklist-mang-doanh-nghiep/",
     icon: "⌁"
   },
   {
@@ -36,7 +36,7 @@ window.GMTECH_POSTS = [
     date: "2026-10-14",
     category: "HỖ TRỢ KỸ THUẬT",
     excerpt: "Một số bước kiểm tra giúp thiết bị hoạt động ổn định và dễ quản lý hơn.",
-    url: "#services",
+    url: "/bai-viet/checklist-bao-tri-may-tinh/",
     icon: "⚙"
   }
 ];

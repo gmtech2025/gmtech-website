@@ -86,3 +86,8 @@ body{background:var(--gm-bg);color:var(--gm-text);font-family:Inter,Arial,sans-s
 .article-tools-redesign>label,.article-tools-redesign>.gmtech-article-search{display:none}
 .article-tools-redesign .gmtech-article-filters,.article-tools-redesign .gmtech-result-count{grid-column:1}
 @media(max-width:680px){#globalSearchForm{grid-template-columns:1fr;gap:8px}.global-search-controls{gap:6px}#globalSearchForm button{padding:9px 12px;font-size:12px}.global-search-results{width:94%}.global-search-result{grid-template-columns:65px 1fr}}
+
+/* Titles are ordinary links: mouse, touch and keyboard navigation. */
+.article-card h3 a,.catalog-card h3 a,.service-catalog-card h3 a{color:inherit;text-decoration:none}
+.article-card h3 a:hover,.catalog-card h3 a:hover,.service-catalog-card h3 a:hover{text-decoration:underline}
+.article-card h3 a:focus-visible,.catalog-card h3 a:focus-visible,.service-catalog-card h3 a:focus-visible{outline:2px solid var(--gm-cyan);outline-offset:3px}

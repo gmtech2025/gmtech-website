@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
               ${escapeHTML(post.category || "GMTECH")}
               ${date ? " · " + escapeHTML(date) : ""}
             </div>
-            <h3>${escapeHTML(post.title || "Bài viết GMTECH")}</h3>
+            <h3><a href="${url}">${escapeHTML(post.title || "Bài viết GMTECH")}</a></h3>
             <p>${escapeHTML(post.excerpt || "")}</p>
             <a href="${url}"
                ${isExternal(post.url) ? 'target="_blank" rel="noopener noreferrer"' : ""}>

@@ -40,6 +40,7 @@
     document.body.style.overflow = "hidden";
     m.querySelector(".catalog-modal-close").focus();
   }
+  function detailUrl(kind, item) { return "/" + kind + "/" + encodeURIComponent(item.slug) + "/"; }
   function specs(p) {
     const fields = [["cpu", "CPU"], ["ram", "RAM"], ["storage", "SSD"], ["display", "Màn hình"]];
     const chips = fields.filter(([key]) => String(p[key] || "").trim()).map(([key, label]) => '<span class="spec-chip"><span aria-hidden="true">◆</span> ' + esc(label) + ': ' + esc(p[key]) + '</span>');
@@ -55,13 +56,8 @@
       const sample = p.is_sample ? '<span class="catalog-badge sample">Sản phẩm minh họa</span>' : "";
       const price = p.is_sample ? "Liên hệ xác nhận" : (p.price ? esc(p.price) : "Liên hệ");
       card.innerHTML = image(p.image, p.title) +
-        '<div class="catalog-body"><div class="catalog-badges"><span class="catalog-badge">' + esc(p.category || "Laptop") + '</span>' + sample + '</div><h3>' + esc(p.title) + '</h3><p>' + esc(p.description) + '</p>' +
-        specs(p) + '<div class="catalog-foot"><span class="catalog-price">' + price + '</span></div><div class="catalog-actions"><button type="button" class="catalog-detail">Xem cấu hình</button><a class="catalog-zalo" href="' + zalo + '" target="_blank" rel="noopener noreferrer" aria-label="Tư vấn Zalo về ' + esc(p.title) + '">Tư vấn qua Zalo ↗</a></div></div>';
-      card.querySelector(".catalog-detail").addEventListener("click", () => modal(p.title,
-        '<p>' + esc(p.description) + '</p>' + specs(p) +
-        (p.is_sample ? '<p><strong>Thông tin minh họa, chưa xác nhận cấu hình, giá và tồn kho.</strong></p>' : "") +
-        '<p>Tình trạng: ' + esc(p.availability === "in-stock" && !p.is_sample ? "Còn hàng (theo cập nhật CMS)" : "Vui lòng liên hệ xác nhận") + '</p>' +
-        '<a class="btn btn-primary" href="' + zalo + '" target="_blank" rel="noopener noreferrer">Tư vấn qua Zalo ↗</a>'));
+        '<div class="catalog-body"><div class="catalog-badges"><span class="catalog-badge">' + esc(p.category || "Laptop") + '</span>' + sample + '</div><h3><a href="' + detailUrl('san-pham', p) + '">' + esc(p.title) + '</a></h3><p>' + esc(p.description) + '</p>' +
+        specs(p) + '<div class="catalog-foot"><span class="catalog-price">' + price + '</span></div><div class="catalog-actions"><a class="catalog-detail" href="' + detailUrl('san-pham', p) + '">Xem cấu hình</a><a class="catalog-zalo" href="' + zalo + '" target="_blank" rel="noopener noreferrer" aria-label="Tư vấn Zalo về ' + esc(p.title) + '">Tư vấn qua Zalo ↗</a></div></div>';
       root.append(card);
     });
   }
@@ -74,10 +70,7 @@
       card.className = "service-catalog-card";
       card.innerHTML = '<div class="service-icon" aria-hidden="true">' + esc(s.icon || "✦") + '</div>' +
         (s.is_sample ? '<div class="catalog-badges"><span class="catalog-badge sample">Nội dung minh họa</span></div>' : "") +
-        '<h3>' + esc(s.title) + '</h3><p>' + esc(s.description) + '</p><button type="button" class="service-more">Tìm hiểu dịch vụ ↗</button>';
-      card.querySelector(".service-more").addEventListener("click", () => modal(s.title,
-        '<p>' + esc(s.description) + '</p>' + (s.body ? '<p>' + esc(s.body).replace(/\n/g, "<br>") + '</p>' : "") +
-        '<a class="btn btn-primary" href="' + zalo + '" target="_blank" rel="noopener noreferrer">Trao đổi nhu cầu ↗</a>'));
+        '<h3><a href="' + detailUrl('dich-vu', s) + '">' + esc(s.title) + '</a></h3><p>' + esc(s.description) + '</p><a class="service-more" href="' + detailUrl('dich-vu', s) + '">Tìm hiểu dịch vụ ↗</a>';
       root.append(card);
     });
   }
