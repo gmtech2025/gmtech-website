@@ -15,7 +15,11 @@ Một lựa chọn để làm việc, học tập, soạn bài và thuyết trì
 • Windows 11
 • Thiết kế xoay gập, thay đổi tư thế sử dụng
 
-Ảnh máy thực tế do GMTECH cung cấp. Liên hệ để xác nhận giá, tình trạng, phụ kiện và bảo hành trước khi giao dịch.
+**Giá bán: 12.000.000đ — máy đã qua sử dụng.**
+
+**Bao test 7 ngày, bảo hành 3 tháng.** Tặng kèm **chuột không dây và túi chống sốc**.
+
+Ảnh máy thực tế do GMTECH cung cấp. Liên hệ để xác nhận máy còn sẵn và điều kiện bao test/bảo hành trước giao dịch.
 
 **Nhắn Zalo hoặc gọi 0908 215 486 để trao đổi nhu cầu.**
 GMTECH — 82/34 Lê Lợi, P. Cẩm Thành, Quảng Ngãi.
@@ -23,8 +27,10 @@ GMTECH — 82/34 Lê Lợi, P. Cẩm Thành, Quảng Ngãi.
 ## Các mục cần chủ GMTECH xác nhận một lượt
 - Mã đầy đủ 14-fa… hoặc Product Number; không cần số serial.
 - Độ phân giải và tần số quét: ảnh Settings → System → Display → Advanced display có thể xác minh trực tiếp.
-- Giá bán; máy mới hay đã sử dụng; tình trạng pin và hạn chế/khuyết điểm đã biết.
-- Bảo hành; phụ kiện kèm theo; tình trạng còn hàng.
+- Tình trạng pin và hạn chế/khuyết điểm đã biết; tình trạng còn hàng.
+
+## Chính sách đã được chủ GMTECH xác nhận
+Giá 12.000.000đ; máy đã qua sử dụng. Chính sách mặc định: bao test 7 ngày, bảo hành 3 tháng; quà tặng chuột không dây, túi chống sốc. Chưa có xác nhận về sạc/bút/hộp, điều kiện đổi trả hoặc phạm vi loại trừ bảo hành; không tự thêm các cam kết đó.
 
 ## Kiểm chứng thông số màn hình
 Thông tin người bán gửi ban đầu: “14 inch FHD Touch / 120Hz”. Chưa chép nguyên cụm này vào bài công bố vì cấu hình cụ thể chưa rõ.
