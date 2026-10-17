@@ -49,7 +49,8 @@ collections:
       - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true }
       - { label: "Nội dung chi tiết", name: "body", widget: "markdown" }
 
-  - name: "posts"    label: "Bài viết"
+  - name: "posts"
+    label: "Bài viết"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
