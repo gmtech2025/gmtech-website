@@ -8,12 +8,8 @@ published: true
 ---
 GMTECH bắt đầu từ một nhu cầu công việc cụ thể để lựa chọn công cụ và phương án triển khai phù hợp.
 
-## Trải nghiệm trước khi trao đổi
-[Xem các ứng dụng mẫu tại Trung tâm trải nghiệm](/trai-nghiem/).
-
-Bạn có thể [dùng thử công cụ quản lý khách hàng và cơ hội kinh doanh](/trai-nghiem/crm/) để hình dung cách ghi nhận và theo dõi công việc bán hàng.
-
-Các ứng dụng hiện có là bản trình diễn dùng dữ liệu giả lập, chưa phải sản phẩm thương mại hoàn chỉnh. Không nhập dữ liệu khách hàng thật vào bản demo.
+## Tư vấn triển khai theo nhu cầu
+Bạn cần đưa một công cụ vào công việc thực tế? Hãy trao đổi quy trình và kết quả mong muốn với GMTECH để làm rõ phạm vi trước khi báo giá.
 
 ## Phạm vi thực hiện
 - Tiếp nhận nhu cầu quản lý khách hàng, công việc và xử lý dữ liệu.
