@@ -7,3 +7,27 @@ body{background:var(--gm-bg);color:var(--gm-text);font-family:Inter,Arial,sans-s
 @media(max-width:900px){.hero-layout{grid-template-columns:1fr;gap:30px;padding-block:60px}.hero-panel{max-width:580px;width:100%;margin:auto}.catalog-grid,.article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-layout{gap:30px}.site-header nav{gap:13px}.site-header nav a{font-size:12px}}
 @media(max-width:680px){.topline-inner{justify-content:center}.topline-inner>span:nth-child(2){display:none}.topline-inner>div{gap:12px}.nav-row{min-height:68px}.brand img{width:42px;height:42px}.menu-toggle{display:block;border:1px solid var(--gm-line);border-radius:8px;background:transparent;color:var(--gm-cyan);font-size:23px;padding:4px 10px}.site-header nav{display:none;position:absolute;top:100%;left:0;right:0;background:#06172a;border-bottom:1px solid var(--gm-line);padding:14px 5%;align-items:stretch;flex-direction:column;gap:0}.site-header nav.open{display:flex}.site-header nav a{padding:12px 0}.site-header .admin-link{margin-top:8px;text-align:center}.hero-layout{padding-block:48px}.hero-copy h1{font-size:clamp(34px,10vw,47px);letter-spacing:-1.4px}.hero-copy>p:not(.eyebrow){font-size:14px}.hero-trust{gap:9px;flex-direction:column}.hero-panel{padding:13px}.network-art{height:260px}.ring-one{width:220px;height:220px}.ring-two{height:250px}.section-block,.contact-section{padding:54px 0}.section-head{align-items:flex-start;flex-direction:column;gap:14px}.head-note{display:none}.catalog-grid,.article-grid,.service-catalog{grid-template-columns:1fr}.catalog-image,.catalog-image-placeholder{height:210px}.article-tools-redesign{grid-template-columns:1fr;padding:13px}.article-tools-redesign>label,.gmtech-article-search,.gmtech-article-filters,.subcategory-line,.gmtech-result-count{grid-column:1}.subcategory-line{grid-template-columns:1fr;gap:6px}.contact-layout{grid-template-columns:1fr;gap:25px}.contact-layout h2{font-size:39px}.contact-card{padding:20px}.footer-row{align-items:flex-start;flex-direction:column;gap:13px}.footer-row>p{margin:0}.footer-bottom{gap:12px;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Catalog layout refinement: reference-inspired, balanced card heights. */
+#products .section-head{align-items:center}
+#products .section-head h2,#services .section-head h2,#articles .section-head h2{line-height:1.18}
+.catalog-grid,.article-grid,.service-catalog{align-items:stretch}
+.catalog-card,.article-card,.service-catalog-card{min-width:0;height:100%}
+.catalog-card{display:flex;flex-direction:column}
+.catalog-card .catalog-image,.catalog-card .catalog-image-placeholder{aspect-ratio:16/9;height:auto;flex-shrink:0}
+.catalog-card .catalog-body{display:flex;flex:1;flex-direction:column;gap:0}
+.catalog-card .catalog-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:2.7em}
+.catalog-card .catalog-body>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.catalog-card .catalog-foot{margin-top:auto}
+.service-catalog{grid-template-columns:repeat(4,minmax(0,1fr))}
+.service-catalog-card{display:flex;flex-direction:column;align-items:flex-start}
+.service-catalog-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.service-catalog-card a{margin-top:auto}
+.article-grid .article-card{display:flex;flex-direction:column}
+.article-grid .article-card .article-content,.article-grid .article-card .gmtech-article-card-content{flex:1;display:flex;flex-direction:column}
+.article-grid .article-card h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.article-grid .article-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.article-grid .article-card .article-read-more{margin-top:auto}
+@media(max-width:1000px){.service-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.service-catalog{grid-template-columns:1fr}.catalog-card .catalog-image,.catalog-card .catalog-image-placeholder{aspect-ratio:16/9;height:auto}}
