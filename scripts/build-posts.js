@@ -341,6 +341,7 @@ function buildCatalog(collectionName, outputName) {
 const productCount = buildCatalog("products", "products.json");
 const serviceCount = buildCatalog("services", "services.json");
 
-console.log(`Build thành công: ${posts.length} bài CMS.`);\nconsole.log(`Đã tạo ${productCount} sản phẩm và ${serviceCount} dịch vụ CMS.`);
+console.log(`Build thành công: ${posts.length} bài CMS.`);
+console.log(`Đã tạo ${productCount} sản phẩm và ${serviceCount} dịch vụ CMS.`);
 console.log("Đã tạo trang chi tiết trong dist/bai-viet/");
 console.log("Thư mục triển khai: dist/");
