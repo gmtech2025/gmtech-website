@@ -26,8 +26,9 @@
   async function load() {
     const [products, services, posts] = await Promise.all([fetchList("products"),fetchList("services"),fetchList("posts")]);
     index = [
-      ...products.filter(p => p.published !== false).map(p => make("Sản phẩm",p.title,p.description,"#products",[p.category,p.sku,p.cpu,p.ram,p.storage,p.display].join(" "))),
-      ...services.filter(s => s.published !== false).map(s => make("Dịch vụ",s.title,s.description,"#services",s.category)),
+      ...products.filter(p => p.published !== false).map(p => make("Sản phẩm",p.title,p.description,"/san-pham/" + safeSlug(p.slug) + "/",[p.category,p.sku,p.cpu,p.ram,p.storage,p.display].join(" "))),
+      ...services.filter(s => s.published !== false).map(s => make("Dịch vụ",s.title,s.description,"/dich-vu/" + safeSlug(s.slug) + "/",s.category)),
+      ...(window.GMTECH_POSTS || []).map(p => make("Bài viết",p.title,p.excerpt,p.url,p.category)),
       ...posts.map(p => make("Bài viết",p.title,p.description,p.slug ? "/bai-viet/" + safeSlug(p.slug) + "/" : "#articles",[p.category,p.category_parent,p.category_child,...(Array.isArray(p.tags)?p.tags:[])].join(" ")))
     ];
     // If CMS data is unavailable, include the HTML fallback product/service cards.
