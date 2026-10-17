@@ -180,9 +180,9 @@ function makeArticlePage(post, allPosts = []) {
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   ${post.thumbnail
-    ? `<meta property="og:image" content="${escapeHtml(post.thumbnail.startsWith("http") ? post.thumbnail : "https://gmtech.pages.dev" + post.thumbnail)}">`
+    ? `<meta property="og:image" content="${escapeHtml(post.thumbnail.startsWith("http") ? post.thumbnail : "https://gmtech.win" + post.thumbnail)}">`
     : ""}
-  <link rel="canonical" href="https://gmtech.pages.dev/bai-viet/${encodeURIComponent(post.slug)}/">
+  <link rel="canonical" href="https://gmtech.win/bai-viet/${encodeURIComponent(post.slug)}/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .post-page { max-width: 900px; margin: 0 auto; padding: 32px 20px 64px; }
