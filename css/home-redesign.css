@@ -63,3 +63,26 @@ body{background:var(--gm-bg);color:var(--gm-text);font-family:Inter,Arial,sans-s
 @media(max-width:680px){.trust-grid{grid-template-columns:1fr 1fr;gap:9px}.trust-grid article{padding:14px 11px}.trust-grid h3{font-size:13px}.trust-grid p{font-size:11px}.floating-contact{right:10px;bottom:max(10px,env(safe-area-inset-bottom))}.floating-contact a{min-width:58px;min-height:40px;font-size:12px}.catalog-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:360px){.trust-grid,.catalog-actions{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.catalog-card .catalog-image{transition:none}.catalog-card:hover .catalog-image{transform:none}}
+
+
+/* PR #12: single search entry point; category chips remain in Knowledge Hub. */
+.gmtech-global-search{background:#07172a;border-bottom:1px solid var(--gm-line);padding:17px 0;position:relative;z-index:35}
+#globalSearchForm{display:grid;grid-template-columns:155px minmax(0,1fr);align-items:center;gap:16px}
+#globalSearchForm label{font-size:13px;font-weight:700;color:#cce9f8}
+.global-search-controls{display:flex;gap:9px;min-width:0}
+#globalSearchInput{flex:1;min-width:0;min-height:46px;padding:10px 15px;border:1px solid rgba(117,176,219,.35);border-radius:11px;background:#061526;color:#f1faff;font:inherit;font-size:14px}
+#globalSearchInput::placeholder{color:#91abc2}
+#globalSearchForm button{padding:10px 17px;border:1px solid rgba(45,229,245,.35);border-radius:10px;background:linear-gradient(110deg,#13c9e0,#378bf3);color:#031323;font-weight:800;cursor:pointer}
+#globalSearchInput:focus-visible,#globalSearchForm button:focus-visible,.global-search-result:focus-visible{outline:2px solid var(--gm-cyan);outline-offset:2px}
+.global-search-results[hidden]{display:none}
+.global-search-results{position:absolute;left:50%;transform:translateX(-50%);top:calc(100% - 1px);width:min(1160px,92%);max-height:min(65vh,480px);overflow:auto;border:1px solid var(--gm-line);border-radius:0 0 14px 14px;background:#0b2038;box-shadow:0 18px 40px rgba(0,0,0,.35);padding:12px 16px}
+.global-search-status{font-size:12px;color:#a9c4d7;margin:4px 0 10px}
+.global-search-result{display:grid;grid-template-columns:75px 1fr;gap:10px;padding:10px;border-radius:8px;color:#e7f5ff;text-decoration:none}
+.global-search-result:hover{background:rgba(45,229,245,.07)}
+.global-search-result>span:first-child{font-size:11px;color:var(--gm-cyan)}
+.global-search-result strong{display:block;font-size:13px}
+.global-search-result small{display:block;color:var(--gm-muted);font-size:11px;line-height:1.4;max-width:90ch;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.article-tools-redesign{grid-template-columns:1fr;gap:11px}
+.article-tools-redesign>label,.article-tools-redesign>.gmtech-article-search{display:none}
+.article-tools-redesign .gmtech-article-filters,.article-tools-redesign .gmtech-result-count{grid-column:1}
+@media(max-width:680px){#globalSearchForm{grid-template-columns:1fr;gap:8px}.global-search-controls{gap:6px}#globalSearchForm button{padding:9px 12px;font-size:12px}.global-search-results{width:94%}.global-search-result{grid-template-columns:65px 1fr}}
