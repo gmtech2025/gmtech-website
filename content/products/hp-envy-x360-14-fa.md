@@ -2,12 +2,12 @@
 title: "HP Envy x360 14-fa — Ryzen 5, RAM 16GB, SSD 512GB"
 sku: ""
 category: "Laptop"
-description: "Laptop 14 inch cảm ứng, thiết kế xoay gập linh hoạt, màu bạc và vỏ nhôm. Cấu hình Ryzen 5 8640HS, RAM 16GB, SSD 512GB; ảnh máy thực tế do GMTECH cung cấp."
+description: "Laptop 14 inch Full HD, cảm ứng, thiết kế xoay gập linh hoạt, màu bạc và vỏ nhôm. Cấu hình Ryzen 5 8640HS, RAM 16GB, SSD 512GB; ảnh máy thực tế do GMTECH cung cấp."
 image: "/assets/uploads/hp-envy-x360-14-fa/front.jpg"
 cpu: "AMD Ryzen 5 8640HS"
 ram: "16GB"
 storage: "SSD 512GB"
-display: "14 inch cảm ứng"
+display: "14 inch Full HD, cảm ứng, xoay gập"
 price: "12.000.000đ"
 availability: "contact"
 is_sample: false
@@ -37,12 +37,12 @@ Cấu hình AMD Ryzen 5 8640HS, RAM 16GB và SSD 512GB là lựa chọn đáng c
 | Bộ xử lý (CPU) | AMD Ryzen 5 8640HS |
 | Bộ nhớ (RAM) | 16GB |
 | Ổ lưu trữ | SSD 512GB |
-| Màn hình | 14 inch cảm ứng |
+| Màn hình | 14 inch Full HD, cảm ứng |
 | Hệ điều hành | Windows 11 |
 | Màu sắc | Bạc (Silver) |
 | Vỏ máy | Nhôm |
 
-Độ phân giải và tần số quét màn hình đang chờ xác nhận theo máy thực tế. Tình trạng pin và các khuyết điểm cụ thể cần kiểm tra, trao đổi trước giao dịch. Không suy ra thời lượng pin hoặc mức độ mới từ ảnh.
+Vui lòng trao đổi với GMTECH để kiểm tra tình trạng pin và ngoại hình cụ thể trước khi giao dịch.
 
 ## Ảnh thực tế
 
