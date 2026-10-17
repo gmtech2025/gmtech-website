@@ -101,3 +101,18 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#e7
 
 /* Software card uses its own artwork rather than the former classroom image. */
 #gmtech-site .p-service:nth-child(6) .p-service-image{background-image:url("/assets/design/software-applications.svg");background-size:cover;background-position:center}
+
+#gmtech-site .applications-hub{border-bottom:1px solid #d5e8f3;background:#f7fbff}
+#gmtech-site .applications-hub>h2{color:#073d70;font-size:26px;margin-bottom:12px}
+#gmtech-site .applications-hub>p{line-height:1.7;margin-bottom:16px}
+#gmtech-site .apps-notice{background:#edf4ff;border-left:4px solid #7654c8;padding:14px 18px;color:#30476a}
+#gmtech-site .apps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}
+#gmtech-site .apps-card{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border:1px solid #d5e1ef;border-radius:12px;padding:22px;box-shadow:0 3px 14px #233e7010;min-width:0}
+#gmtech-site .apps-icon{font-size:30px;margin-bottom:12px}
+#gmtech-site .apps-status{font-size:12px;font-weight:700;color:#6246a0;background:#f0eaff;border-radius:20px;padding:5px 10px}
+#gmtech-site .apps-status.pending{background:#fff2da;color:#865500}
+#gmtech-site .apps-card h2{font-size:21px;color:#123e6b;line-height:1.4;margin:14px 0}
+#gmtech-site .apps-card p{font-size:15px;line-height:1.7;margin-bottom:18px;color:#486079;flex:1}
+#gmtech-site .apps-card .p-cta{min-height:44px;background:#6246a0;color:#fff;padding:11px 16px;border-radius:7px}
+#gmtech-site .apps-info{color:#556782;font-size:13px;line-height:1.7}
+@media(max-width:600px){#gmtech-site .apps-grid{grid-template-columns:1fr}#gmtech-site .apps-card{padding:18px}}
