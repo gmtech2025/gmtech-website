@@ -11,7 +11,7 @@ display: "14 inch Full HD, cảm ứng, xoay gập"
 price: "12.000.000đ"
 availability: "contact"
 is_sample: false
-published: false
+published: true
 ---
 ## Giá bán và ưu đãi
 
