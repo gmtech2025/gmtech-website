@@ -101,7 +101,6 @@
   function setupFilters() {
     const search = document.getElementById("articleSearch");
     const filterBox = document.getElementById("articleFilters");
-    const childSelect = document.getElementById("articleSubcategory");
     const count = document.getElementById("articleResultCount");
     const cards = Array.from(grid.querySelectorAll(".article-card"));
     if (!filterBox) return;
@@ -125,39 +124,14 @@
     });
 
     let activeParent = "all";
-    let activeChild = "all";
-
-    function updateChildren() {
-      if (!childSelect) return;
-      const currentValue = activeChild;
-      const children = [...new Set(cards
-        .filter(card => activeParent === "all" || card.dataset.parent === activeParent)
-        .map(card => card.dataset.child)
-        .filter(Boolean))].sort((a, b) => a.localeCompare(b, "vi"));
-      childSelect.replaceChildren();
-      const allOption = document.createElement("option");
-      allOption.value = "all";
-      allOption.textContent = "Tất cả danh mục con";
-      childSelect.appendChild(allOption);
-      children.forEach(child => {
-        const option = document.createElement("option");
-        option.value = child;
-        option.textContent = child;
-        childSelect.appendChild(option);
-      });
-      activeChild = children.includes(currentValue) ? currentValue : "all";
-      childSelect.value = activeChild;
-      childSelect.disabled = children.length === 0;
-    }
 
     const apply = () => {
       const q = String(search?.value || "").trim().toLocaleLowerCase("vi");
       let shown = 0;
       cards.forEach(card => {
         const parentOK = activeParent === "all" || card.dataset.parent === activeParent;
-        const childOK = activeChild === "all" || card.dataset.child === activeChild;
         const haystack = String(card.dataset.search || card.textContent).toLocaleLowerCase("vi");
-        const show = parentOK && childOK && (!q || haystack.includes(q));
+        const show = parentOK && (!q || haystack.includes(q));
         card.hidden = !show;
         if (show) shown++;
       });
@@ -169,21 +143,14 @@
       const btn = event.target.closest("button[data-filter]");
       if (!btn) return;
       activeParent = btn.dataset.filter;
-      activeChild = "all";
       filterBox.querySelectorAll("button[data-filter]").forEach(item => {
         const on = item === btn;
         item.classList.toggle("is-active", on);
         item.setAttribute("aria-pressed", String(on));
       });
-      updateChildren();
-      apply();
-    });
-    childSelect?.addEventListener("change", () => {
-      activeChild = childSelect.value;
       apply();
     });
     search?.addEventListener("input", apply);
-    updateChildren();
     apply();
   }
 
