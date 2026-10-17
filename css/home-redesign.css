@@ -31,3 +31,35 @@ body{background:var(--gm-bg);color:var(--gm-text);font-family:Inter,Arial,sans-s
 .article-grid .article-card .article-read-more{margin-top:auto}
 @media(max-width:1000px){.service-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.service-catalog{grid-template-columns:1fr}.catalog-card .catalog-image,.catalog-card .catalog-image-placeholder{aspect-ratio:16/9;height:auto}}
+
+
+/* GMTECH v1.0: trust, instant fallback, quick specs and contact actions */
+.catalog-card .catalog-image{transition:transform .28s ease}
+.catalog-card{isolation:isolate}
+.catalog-card:hover{box-shadow:0 18px 44px rgba(0,0,0,.24)}
+.catalog-card:hover .catalog-image{transform:scale(1.025)}
+.catalog-specs{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 15px}
+.spec-chip{font-size:11px;line-height:1.35;border:1px solid rgba(90,170,220,.25);border-radius:7px;background:rgba(45,229,245,.055);padding:6px 8px;color:#c6e5f6}
+.spec-chip span{font-size:8px;color:var(--gm-cyan)}
+.catalog-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.catalog-actions .catalog-detail,.catalog-actions .catalog-zalo{min-height:40px;display:flex;align-items:center;justify-content:center;padding:9px 8px;border-radius:9px;font-size:12px;font-weight:750;text-align:center;text-decoration:none;cursor:pointer}
+.catalog-actions .catalog-detail{border:1px solid var(--gm-line);background:#112c48;color:#e3f2ff}
+.catalog-actions .catalog-zalo{border:1px solid rgba(45,229,245,.35);background:linear-gradient(110deg,#10cce0,#378df5);color:#061527}
+.service-catalog-card .service-more{margin-top:auto;border:0;padding:0;background:transparent;color:var(--gm-cyan);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.trust-section{padding:45px 0 52px;background:linear-gradient(120deg,#091e35,#0b2a43);border-block:1px solid var(--gm-line)}
+.trust-heading{text-align:center;margin-bottom:25px}
+.trust-heading .eyebrow{margin-bottom:8px}
+.trust-heading h2{margin:0;font-size:clamp(23px,2.6vw,32px);letter-spacing:-.7px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.trust-grid article{min-width:0;padding:20px 17px;border:1px solid var(--gm-line);border-radius:13px;background:rgba(4,19,36,.42)}
+.trust-grid article>span{display:block;font-size:25px;margin-bottom:11px}
+.trust-grid h3{font-size:15px;margin:0 0 8px;color:#f2faff}
+.trust-grid p{font-size:12px;line-height:1.65;color:var(--gm-muted);margin:0}
+.floating-contact{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:65;display:flex;flex-direction:column;gap:8px}
+.floating-contact a{display:flex;align-items:center;justify-content:center;min-width:70px;min-height:43px;padding:9px 12px;border-radius:999px;border:1px solid rgba(45,229,245,.4);background:#0a7ed6;color:white;font-size:13px;font-weight:800;text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,.35)}
+.floating-contact a:last-child{background:#0a2038}
+.floating-contact a:focus-visible,.catalog-actions a:focus-visible,.catalog-actions button:focus-visible{outline:2px solid var(--gm-cyan);outline-offset:3px}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.trust-grid{grid-template-columns:1fr 1fr;gap:9px}.trust-grid article{padding:14px 11px}.trust-grid h3{font-size:13px}.trust-grid p{font-size:11px}.floating-contact{right:10px;bottom:max(10px,env(safe-area-inset-bottom))}.floating-contact a{min-width:58px;min-height:40px;font-size:12px}.catalog-actions{grid-template-columns:1fr 1fr}}
+@media(max-width:360px){.trust-grid,.catalog-actions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.catalog-card .catalog-image{transition:none}.catalog-card:hover .catalog-image{transform:none}}

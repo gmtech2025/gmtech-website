@@ -1,0 +1,34 @@
+name: Validate GMTECH pull request
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Check JavaScript syntax
+        run: |
+          node --check js/catalog.js
+          node --check scripts/build-posts.js
+      - name: Validate CMS YAML
+        run: node -e "const fs=require('fs');require('js-yaml').load(fs.readFileSync('admin/config.yml','utf8'));"
+      - name: Build site
+        run: npm run build
+      - name: Verify output
+        run: |
+          test -f dist/index.html
+          test -f dist/admin/config.yml
+          test -f dist/data/products.json
+          test -f dist/data/services.json
+          node -e "const fs=require('fs');for(const f of ['products','services']){const data=JSON.parse(fs.readFileSync('dist/data/'+f+'.json'));if(!Array.isArray(data))throw new Error(f+' is not an array')}"
