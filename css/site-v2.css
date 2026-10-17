@@ -98,3 +98,6 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#e7
 #gmtech-site .p-service>a{display:block;text-decoration:none;height:100%}#gmtech-site .p-service-image,#gmtech-site .p-service-copy{display:block}#gmtech-site .p-cta{display:inline-block;text-decoration:none}#gmtech-site .p-logo-panel{display:flex;text-decoration:none}#gmtech-site [hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 #gmtech-site .site-search{flex:1;min-width:230px}#gmtech-site .p-nav-links{gap:16px}#gmtech-site .p-nav-links a{text-decoration:none}#gmtech-site .p-detail-top h1{font-size:clamp(24px,4vw,34px);line-height:1.25;margin:12px 0}#gmtech-site .p-quote p{margin:12px 0;line-height:1.7}
+
+/* Software card uses its own artwork rather than the former classroom image. */
+#gmtech-site .p-service:nth-child(6) .p-service-image{background-image:url("/assets/design/software-applications.svg");background-size:cover;background-position:center}
