@@ -23,6 +23,7 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Tên sản phẩm", name: "title", widget: "string" }
+      - { label: "Ngày đăng sản phẩm", name: "date", widget: "datetime", hint: "Giữ nguyên khi sửa giá hoặc nội dung; dùng để sắp xếp sản phẩm mới trên trang chủ." }
       - { label: "Mã sản phẩm", name: "sku", widget: "string", required: false }
       - { label: "Danh mục", name: "category", widget: "select", options: ["Laptop", "Máy tính để bàn", "Linh kiện", "Phụ kiện", "Thiết bị mạng", "Khác"] }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
@@ -32,7 +33,7 @@ collections:
       - { label: "Ổ lưu trữ (thông số nhanh)", name: "storage", widget: "string", required: false }
       - { label: "Màn hình (thông số nhanh)", name: "display", widget: "string", required: false }
       - { label: "Giá hiển thị (để trống nếu chưa xác nhận)", name: "price", widget: "string", required: false }
-      - { label: "Tình trạng", name: "availability", widget: "select", options: [{label: "Chưa xác nhận", value: "unconfirmed"}, {label: "Còn hàng (đã xác nhận)", value: "in-stock"}, {label: "Liên hệ", value: "contact"}] }
+      - { label: "Tình trạng", name: "availability", widget: "select", options: [{label: "Chưa xác nhận", value: "unconfirmed"}, {label: "Còn hàng (đã xác nhận)", value: "in-stock"}, {label: "Liên hệ", value: "contact"}, {label: "Đã bán hết", value: "sold-out"}] }
       - { label: "Nhãn minh họa", name: "is_sample", widget: "boolean", default: false, required: false }
       - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true }
       - { label: "Nội dung chi tiết", name: "body", widget: "markdown" }
@@ -63,6 +64,7 @@ collections:
     fields:
       - { label: "Tiêu đề", name: "title", widget: "string" }
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true, required: false }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Ảnh đại diện", name: "thumbnail", widget: "image", required: false }
 

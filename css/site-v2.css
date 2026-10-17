@@ -116,3 +116,27 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#e7
 #gmtech-site .apps-card .p-cta{min-height:44px;background:#6246a0;color:#fff;padding:11px 16px;border-radius:7px}
 #gmtech-site .apps-info{color:#556782;font-size:13px;line-height:1.7}
 @media(max-width:600px){#gmtech-site .apps-grid{grid-template-columns:1fr}#gmtech-site .apps-card{padding:18px}}
+
+#gmtech-site .latest-updates{background:linear-gradient(125deg,#fff,#f0f9ff);border-top:1px solid #d8eaf4;border-bottom:1px solid #d8eaf4}
+#gmtech-site .updates-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}
+#gmtech-site .updates-eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;color:#007eab;margin-bottom:8px}
+#gmtech-site .updates-heading h2{font-size:28px;color:#082c60;margin-bottom:8px;line-height:1.3}
+#gmtech-site .updates-heading p{line-height:1.6}
+#gmtech-site .updates-all{display:flex;flex-wrap:wrap;gap:8px;flex-shrink:0}
+#gmtech-site .updates-all a{border:1px solid #aed4e8;padding:10px 12px;border-radius:6px;color:#006794;font-size:12px;font-weight:700;text-decoration:none;min-height:44px}
+#gmtech-site .updates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+#gmtech-site .update-card{min-width:0;display:flex;flex-direction:column;border:1px solid #cfe3ef;border-radius:9px;background:#fff;overflow:hidden;box-shadow:0 4px 14px #003c6d0b}
+#gmtech-site .update-picture{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:linear-gradient(135deg,#e7f4ff,#d5e8fb);color:#126493;text-decoration:none;font-weight:700;overflow:hidden}
+#gmtech-site .update-picture img{width:100%;height:100%;object-fit:cover;display:block}
+#gmtech-site [data-update-type="product"] .update-picture img{object-fit:contain;background:white}
+#gmtech-site .update-body{padding:15px;display:flex;flex-direction:column;gap:10px;flex:1}
+#gmtech-site .update-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap;font-size:11px;color:#63738b}
+#gmtech-site .update-meta>span{background:#e7f6ff;color:#006796;border-radius:15px;padding:4px 8px;font-weight:700}
+#gmtech-site .update-body h3{font-size:17px;line-height:1.5;color:#062d60}
+#gmtech-site .update-body h3 a{text-decoration:none}#gmtech-site .update-body h3 a:hover{text-decoration:underline}
+#gmtech-site .update-price{font-size:20px;font-weight:800;color:#c34f08}
+#gmtech-site .update-description{font-size:13px;line-height:1.65;color:#536781;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+#gmtech-site .update-stock{font-size:11px;color:#60718b}
+#gmtech-site .update-link{margin-top:auto;padding-top:10px;min-height:44px;display:flex;align-items:center;font-size:13px;font-weight:700;color:#006c9f;text-decoration:none}
+@media(max-width:800px){#gmtech-site .updates-heading{align-items:flex-start;flex-direction:column}#gmtech-site .updates-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){#gmtech-site .updates-grid{grid-template-columns:1fr}#gmtech-site .updates-heading h2{font-size:25px}}

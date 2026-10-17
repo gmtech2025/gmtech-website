@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {selectLatest}=require('./latest-updates');
+const now=Date.parse('2026-10-18T00:00:00Z');
+const make=(slug,date,extra={})=>({slug,date,published:true,is_sample:false,availability:'contact',...extra});
+const products=[make('older','2026-10-14'),make('newest','2026-10-17'),make('middle','2026-10-16'),make('sample','2026-10-17',{is_sample:true}),make('draft','2026-10-17',{published:false}),make('sold','2026-10-17',{availability:'sold-out'}),make('future','2026-10-19'),make('invalid','invalid')];
+const posts=[make('old-post','2026-10-14'),make('new-post','2026-10-17'),make('middle-post','2026-10-16'),make('draft-post','2026-10-17',{published:'false'}),make('sample-post','2026-10-17',{is_sample:'true'})];
+const before=JSON.stringify(products);
+const result=selectLatest(products,posts,now);
+assert.deepEqual(result.products.map(x=>x.slug),['newest','middle']);
+assert.deepEqual(result.posts.map(x=>x.slug),['new-post','middle-post']);
+assert.equal(JSON.stringify(products),before);
+products[0].price='1.000.000đ';products[0].body='Nội dung đã sửa';
+assert.deepEqual(selectLatest(products,posts,now).products.map(x=>x.slug),['newest','middle']);
+assert.equal(selectLatest([products[0]],[],now).products.length,1);
+assert.deepEqual(selectLatest([],[],now),{products:[],posts:[]});
+console.log('Latest updates: dates, independent quotas, exclusions, price/content edits, sparse/empty lists passed.');

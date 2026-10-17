@@ -170,6 +170,8 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
     slug: path.basename(file, ".md"),
     title: String(data.title || path.basename(file, ".md")),
     date: toValidDate(data.date),
+    published: data.published !== false && String(data.published).toLowerCase() !== "false",
+    is_sample: data.is_sample === true || String(data.is_sample).toLowerCase() === "true",
     description: String(data.description || ""),
     thumbnail: safeThumbnail(data.thumbnail),
 
@@ -185,7 +187,7 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
     body,
     html: cleanHtml(renderedHtml)
   };
-});
+}).filter(item => item.published);
 
 posts.sort(
   (a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0)
@@ -226,6 +228,7 @@ function buildCatalog(collectionName, outputName) {
     catalogSlugs.add(baseSlug);
     return {
       slug: baseSlug,
+      date: toValidDate(data.date),
       title: String(data.title || baseSlug),
       category: String(data.category || ""),
       description: String(data.description || ""),

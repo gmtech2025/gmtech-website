@@ -1,5 +1,6 @@
 ---
 title: "HP Envy x360 14-fa — Ryzen 5, RAM 16GB, SSD 512GB"
+date: 2026-10-17T16:45:20+07:00
 sku: ""
 category: "Laptop"
 description: "Laptop 14 inch Full HD, cảm ứng, thiết kế xoay gập linh hoạt, màu bạc và vỏ nhôm. Cấu hình Ryzen 5 8640HS, RAM 16GB, SSD 512GB; ảnh máy thực tế do GMTECH cung cấp."
