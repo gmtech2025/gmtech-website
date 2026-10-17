@@ -58,7 +58,7 @@ window.GMTECH_RESOURCES = [
   {
     title: "Facebook",
     description: "Tin tức và hoạt động GMTECH",
-    url: "https://www.facebook.com/laptopquangngai.gmtech",
+    url: "https://www.facebook.com/share/1JN1cQmjFv/?mibextid=wwXIfr",
     icon: "f"
   },
   {
