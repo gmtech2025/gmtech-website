@@ -46,3 +46,8 @@ published: false
 - Ngoại hình, pin và hạn chế thực tế.
 - Phụ kiện, giá, bảo hành đã duyệt.
 - Hotline/Zalo 0908 215 486; khuyến khích kiểm tra máy trước giao dịch.
+
+## Chính sách mặc định do chủ GMTECH xác nhận ngày 17/10/2026
+- Bao test 7 ngày, bảo hành 3 tháng.
+- Quà tặng: chuột không dây và túi chống sốc.
+- Áp dụng khi soạn nội dung laptop tiếp theo, trừ khi chủ GMTECH chỉ định khác. Không suy diễn bao test thành hoàn tiền vô điều kiện hoặc tự thêm phạm vi bảo hành.
