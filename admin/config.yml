@@ -27,6 +27,10 @@ collections:
       - { label: "Danh mục", name: "category", widget: "select", options: ["Laptop", "Máy tính để bàn", "Linh kiện", "Phụ kiện", "Thiết bị mạng", "Khác"] }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Ảnh", name: "image", widget: "image", required: false }
+      - { label: "CPU (thông số nhanh)", name: "cpu", widget: "string", required: false }
+      - { label: "RAM (thông số nhanh)", name: "ram", widget: "string", required: false }
+      - { label: "Ổ lưu trữ (thông số nhanh)", name: "storage", widget: "string", required: false }
+      - { label: "Màn hình (thông số nhanh)", name: "display", widget: "string", required: false }
       - { label: "Giá hiển thị (để trống nếu chưa xác nhận)", name: "price", widget: "string", required: false }
       - { label: "Tình trạng", name: "availability", widget: "select", options: [{label: "Chưa xác nhận", value: "unconfirmed"}, {label: "Còn hàng (đã xác nhận)", value: "in-stock"}, {label: "Liên hệ", value: "contact"}] }
       - { label: "Nhãn minh họa", name: "is_sample", widget: "boolean", default: false, required: false }
