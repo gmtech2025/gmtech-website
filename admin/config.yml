@@ -14,8 +14,42 @@ public_folder: "/assets/uploads"
 
 
 collections:
-  - name: "posts"
-    label: "Bài viết"
+  - name: "products"
+    label: "Sản phẩm"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Tên sản phẩm", name: "title", widget: "string" }
+      - { label: "Mã sản phẩm", name: "sku", widget: "string", required: false }
+      - { label: "Danh mục", name: "category", widget: "select", options: ["Laptop", "Máy tính để bàn", "Linh kiện", "Phụ kiện", "Thiết bị mạng", "Khác"] }
+      - { label: "Mô tả ngắn", name: "description", widget: "text" }
+      - { label: "Ảnh", name: "image", widget: "image", required: false }
+      - { label: "Giá hiển thị (để trống nếu chưa xác nhận)", name: "price", widget: "string", required: false }
+      - { label: "Tình trạng", name: "availability", widget: "select", options: [{label: "Chưa xác nhận", value: "unconfirmed"}, {label: "Còn hàng (đã xác nhận)", value: "in-stock"}, {label: "Liên hệ", value: "contact"}] }
+      - { label: "Nhãn minh họa", name: "is_sample", widget: "boolean", default: false, required: false }
+      - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true }
+      - { label: "Nội dung chi tiết", name: "body", widget: "markdown" }
+
+  - name: "services"
+    label: "Dịch vụ"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Tên dịch vụ", name: "title", widget: "string" }
+      - { label: "Nhóm dịch vụ", name: "category", widget: "select", options: ["IT Outsourcing", "Hạ tầng mạng", "An toàn thông tin", "Máy chủ & lưu trữ", "Sửa chữa & bảo trì", "Phần mềm & tự động hóa", "Đào tạo"] }
+      - { label: "Mô tả ngắn", name: "description", widget: "text" }
+      - { label: "Biểu tượng (ký tự)", name: "icon", widget: "string", required: false }
+      - { label: "Nhãn minh họa", name: "is_sample", widget: "boolean", default: false, required: false }
+      - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true }
+      - { label: "Nội dung chi tiết", name: "body", widget: "markdown" }
+
+  - name: "posts"    label: "Bài viết"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
