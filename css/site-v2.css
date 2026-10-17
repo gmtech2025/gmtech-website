@@ -140,3 +140,20 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#e7
 #gmtech-site .update-link{margin-top:auto;padding-top:10px;min-height:44px;display:flex;align-items:center;font-size:13px;font-weight:700;color:#006c9f;text-decoration:none}
 @media(max-width:800px){#gmtech-site .updates-heading{align-items:flex-start;flex-direction:column}#gmtech-site .updates-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){#gmtech-site .updates-grid{grid-template-columns:1fr}#gmtech-site .updates-heading h2{font-size:25px}}
+
+#gmtech-site .social-actions{padding:20px 28px;background:#f3f9fe;border-bottom:1px solid #d5e7f2}
+#gmtech-site .social-actions h2{font-size:17px;color:#073a70;margin-bottom:12px}
+#gmtech-site .social-buttons{display:flex;flex-wrap:wrap;gap:9px}
+#gmtech-site .social-buttons a,#gmtech-site .social-buttons button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #b5d3e7;border-radius:7px;padding:10px 14px;background:white;color:#064e80;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
+#gmtech-site .social-buttons .social-facebook,#gmtech-site .floating-contact .floating-facebook{background:#1864d9;color:#fff;border-color:#1864d9}
+#gmtech-site .social-buttons .social-zalo{background:#0073cf;color:#fff;border-color:#0073cf}
+#gmtech-site .share-help{font-size:12px;color:#4e657c;line-height:1.6;margin-top:12px}
+#gmtech-site .share-status{font-size:13px;color:#164f72;line-height:1.6;margin-top:7px}
+#gmtech-site .share-status:empty{display:none}
+#gmtech-site .share-manual{margin-top:12px;font-size:13px}
+#gmtech-site .share-manual input{display:block;width:100%;margin-top:7px;padding:11px;border:1px solid #92b8d1;border-radius:6px;font-size:16px}
+#gmtech-site .footer-social{font-size:13px;margin:16px 0;line-height:1.7;color:white}
+#gmtech-site .floating-contact{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 20px)}
+#gmtech-site .floating-contact a{padding:10px 12px}
+#gmtech-site .p-footer-copy{padding-bottom:70px}
+@media(max-width:540px){#gmtech-site .social-actions{padding:18px}#gmtech-site .social-buttons{gap:8px}#gmtech-site .social-buttons a,#gmtech-site .social-buttons button{font-size:12px;padding:10px 12px}#gmtech-site .floating-contact a{font-size:12px;padding:10px}#gmtech-site .p-footer-copy{padding-bottom:80px}}
