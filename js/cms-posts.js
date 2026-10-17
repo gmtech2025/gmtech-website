@@ -81,7 +81,10 @@
       if (classification.childElementCount) content.appendChild(classification);
 
       const title = document.createElement("h3");
-      title.textContent = post.title || "Bài viết GMTECH";
+      const titleLink = document.createElement("a");
+      titleLink.href = `/bai-viet/${encodeURIComponent(post.slug)}/`;
+      titleLink.textContent = post.title || "Bài viết GMTECH";
+      title.appendChild(titleLink);
       const excerpt = document.createElement("p");
       excerpt.className = "gmtech-article-excerpt";
       excerpt.textContent = post.description || "";
