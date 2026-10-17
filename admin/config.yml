@@ -5,8 +5,8 @@ backend:
   base_url: https://gmtech-decap-auth.ndlamvn.workers.dev
   auth_endpoint: /auth
 
-site_url: https://gmtech.pages.dev
-display_url: https://gmtech.pages.dev
+site_url: https://gmtech.win
+display_url: https://gmtech.win
 locale: vi
 
 media_folder: "assets/uploads"
