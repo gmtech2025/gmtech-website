@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426"><meta name="robots" content="index,follow">
+<title>Công cụ giáo án điện tử | GMTECH</title>
+<meta name="description" content="Soạn thử một kế hoạch bài dạy, xem trước theo thời gian thực và tải bản văn bản về máy. Giáo viên vẫn chịu trách nhiệm rà soát chuyên môn.">
+<link rel="icon" href="/assets/gmtech-logo.png"><link rel="stylesheet" href="/trai-nghiem/demo.css"></head>
+<body data-demo="lesson">
+<header class="topbar"><div class="shell"><a href="/" class="brand"><img src="/assets/gmtech-logo.png" alt="GMTECH"><span>GM<b>TECH</b> / EDU & AI LAB</span></a><nav aria-label="Điều hướng nhanh"><a href="/">Trang chủ</a><a href="/#services">Dịch vụ</a><a href="/#articles">Kiến thức</a><a href="/#contact">Liên hệ</a></nav></div></header>
+<main><section class="hero shell"><p class="eyebrow">GMTECH · Experience Lab</p><h1>Công cụ giáo án điện tử</h1><p class="lead">Soạn thử một kế hoạch bài dạy, xem trước theo thời gian thực và tải bản văn bản về máy. Giáo viên vẫn chịu trách nhiệm rà soát chuyên môn.</p>
+<div class="notice">Bản trình diễn chức năng với dữ liệu giả lập. Không nhập dữ liệu cá nhân, thông tin học sinh hoặc dữ liệu khách hàng thật. Chưa phải hệ thống production.</div>
+<div class="menu" role="navigation" aria-label="Các bản demo">
+<a href="/trai-nghiem/" >Tổng quan</a>
+<a href="/trai-nghiem/quan-ly-day-them/" >Quản lý lớp</a>
+<a href="/trai-nghiem/giao-an-dien-tu/" aria-current="page">Giáo án</a>
+<a href="/trai-nghiem/mo-phong/" >Mô phỏng</a>
+<a href="/trai-nghiem/crm/" >CRM</a>
+</div></section><section class="section shell">
+<div class="twocol"><div class="panel"><h2>Soạn nội dung mẫu</h2>
+<label class="field" for="subject">Môn học</label><select id="subject"><option>Tiếng Anh</option><option>Toán</option><option>Khoa học</option><option>Ngữ văn</option></select>
+<label class="field" for="grade">Khối lớp</label><select id="grade"><option>Lớp 6</option><option>Lớp 7</option><option>Lớp 8</option><option>Lớp 9</option><option>Lớp 10</option></select>
+<label class="field" for="topic">Chủ đề bài dạy</label><input id="topic" maxlength="120" value="Introducing yourself" autocomplete="off">
+<label class="field" for="goals">Mục tiêu bài học</label><textarea id="goals" maxlength="2500">Học sinh có thể giới thiệu tên và sở thích bằng câu đơn giản.</textarea>
+<label class="field" for="activities">Hoạt động học tập</label><textarea id="activities" maxlength="5000">1. Khởi động: hỏi đáp theo cặp.
+2. Luyện tập: ghép câu giới thiệu.
+3. Vận dụng: giới thiệu bản thân trước nhóm.</textarea>
+<label class="field" for="assessment">Đánh giá</label><textarea id="assessment" maxlength="2500">Quan sát hoạt động cặp; sử dụng bảng tiêu chí ngắn để nhận xét phần nói.</textarea>
+<div class="buttons"><button class="action" id="exportLesson" type="button">Tải bản nháp .txt ↓</button></div><p id="feedback" role="status" aria-live="polite"></p></div>
+<div class="panel"><h2>Xem trước bản nháp</h2><div class="preview"><span class="tag">BẢN NHÁP · GIÁO VIÊN KIỂM DUYỆT</span><h3 id="pTitle"></h3><p id="pMeta"></p><h3>1. Mục tiêu</h3><p id="pGoals"></p><h3>2. Hoạt động dạy học</h3><p id="pActivities"></p><h3>3. Đánh giá</h3><p id="pAssessment"></p></div><p class="info">Đây là ví dụ kỹ thuật về trình soạn thảo, không phải mẫu giáo án đã được xác nhận tuân thủ mọi văn bản chuyên môn.</p></div></div></section></main>
+<footer class="footer"><div class="shell"><span>© GMTECH · Công nghệ & Giáo dục</span><span>Prototype miễn phí · Không gửi dữ liệu demo lên máy chủ</span><a href="/#contact">Liên hệ tư vấn ↗</a></div></footer>
+<script src="/trai-nghiem/demo.js" defer></script></body></html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426"><meta name="robots" content="index,follow">
+<title>Mô phỏng trực quan tương tác | GMTECH</title>
+<meta name="description" content="Ví dụ kỹ thuật về mô phỏng phân số: kéo thanh trượt để thay đổi giá trị và xem kết quả. Đây chưa phải đặc tả K12-03 chính thức.">
+<link rel="icon" href="/assets/gmtech-logo.png"><link rel="stylesheet" href="/trai-nghiem/demo.css"></head>
+<body data-demo="sim">
+<header class="topbar"><div class="shell"><a href="/" class="brand"><img src="/assets/gmtech-logo.png" alt="GMTECH"><span>GM<b>TECH</b> / EDU & AI LAB</span></a><nav aria-label="Điều hướng nhanh"><a href="/">Trang chủ</a><a href="/#services">Dịch vụ</a><a href="/#articles">Kiến thức</a><a href="/#contact">Liên hệ</a></nav></div></header>
+<main><section class="hero shell"><p class="eyebrow">GMTECH · Experience Lab</p><h1>Mô phỏng trực quan tương tác</h1><p class="lead">Ví dụ kỹ thuật về mô phỏng phân số: kéo thanh trượt để thay đổi giá trị và xem kết quả. Đây chưa phải đặc tả K12-03 chính thức.</p>
+<div class="notice">Bản trình diễn chức năng với dữ liệu giả lập. Không nhập dữ liệu cá nhân, thông tin học sinh hoặc dữ liệu khách hàng thật. Chưa phải hệ thống production.</div>
+<div class="menu" role="navigation" aria-label="Các bản demo">
+<a href="/trai-nghiem/" >Tổng quan</a>
+<a href="/trai-nghiem/quan-ly-day-them/" >Quản lý lớp</a>
+<a href="/trai-nghiem/giao-an-dien-tu/" >Giáo án</a>
+<a href="/trai-nghiem/mo-phong/" aria-current="page">Mô phỏng</a>
+<a href="/trai-nghiem/crm/" >CRM</a>
+</div></section><section class="section shell">
+<div class="twocol"><div class="panel"><h2>Điều chỉnh tham số</h2>
+<label class="field" for="numerator">Tử số: <span id="numValue" class="range-value">2</span></label><input id="numerator" type="range" min="0" max="12" value="2" step="1">
+<label class="field" for="denominator">Mẫu số: <span id="denValue" class="range-value">5</span></label><input id="denominator" type="range" min="1" max="12" value="5" step="1">
+<p class="info">Đổi một tham số để quan sát tác động tức thời. Mẫu số tối thiểu là 1 để tránh phép chia cho 0.</p></div>
+<div class="panel"><h2>Quan sát tỷ lệ</h2><div class="sim-row"><strong id="fractionValue">2 / 5 = 40%</strong></div><div class="progress" role="progressbar" aria-label="Biểu diễn phân số đến tối đa 100%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><div id="fractionBar"></div></div><p id="fractionNote" class="info"></p><p class="info">Chưa tích hợp chương trình môn học hay ngân hàng mô phỏng. GMTECH sẽ xác định nội dung thật khi có yêu cầu nghiệp vụ cụ thể.</p></div></div></section></main>
+<footer class="footer"><div class="shell"><span>© GMTECH · Công nghệ & Giáo dục</span><span>Prototype miễn phí · Không gửi dữ liệu demo lên máy chủ</span><a href="/#contact">Liên hệ tư vấn ↗</a></div></footer>
+<script src="/trai-nghiem/demo.js" defer></script></body></html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426"><meta name="robots" content="index,follow">
+<title>CRM &amp; Quản lý cơ hội kinh doanh | GMTECH</title>
+<meta name="description" content="Bản demo quản lý cơ hội đơn giản: thêm và lọc cơ hội, xem số liệu minh họa. Không lưu trên máy chủ.">
+<link rel="icon" href="/assets/gmtech-logo.png"><link rel="stylesheet" href="/trai-nghiem/demo.css"></head>
+<body data-demo="crm">
+<header class="topbar"><div class="shell"><a href="/" class="brand"><img src="/assets/gmtech-logo.png" alt="GMTECH"><span>GM<b>TECH</b> / EDU & AI LAB</span></a><nav aria-label="Điều hướng nhanh"><a href="/">Trang chủ</a><a href="/#services">Dịch vụ</a><a href="/#articles">Kiến thức</a><a href="/#contact">Liên hệ</a></nav></div></header>
+<main><section class="hero shell"><p class="eyebrow">GMTECH · Experience Lab</p><h1>CRM &amp; Quản lý cơ hội kinh doanh</h1><p class="lead">Bản demo quản lý cơ hội đơn giản: thêm và lọc cơ hội, xem số liệu minh họa. Không lưu trên máy chủ.</p>
+<div class="notice">Bản trình diễn chức năng với dữ liệu giả lập. Không nhập dữ liệu cá nhân, thông tin học sinh hoặc dữ liệu khách hàng thật. Chưa phải hệ thống production.</div>
+<div class="menu" role="navigation" aria-label="Các bản demo">
+<a href="/trai-nghiem/" >Tổng quan</a>
+<a href="/trai-nghiem/quan-ly-day-them/" >Quản lý lớp</a>
+<a href="/trai-nghiem/giao-an-dien-tu/" >Giáo án</a>
+<a href="/trai-nghiem/mo-phong/" >Mô phỏng</a>
+<a href="/trai-nghiem/crm/" aria-current="page">CRM</a>
+</div></section><section class="section shell">
+<div class="stats"><div class="stat"><strong id="leadCount">0</strong><span>Tổng cơ hội minh họa</span></div><div class="stat"><strong id="leadTalking">0</strong><span>Đang trao đổi</span></div><div class="stat"><strong id="leadAmount">0 đ</strong><span>Tổng giá trị dự kiến giả lập</span></div></div>
+<div class="twocol"><div class="panel"><h2>Thêm cơ hội thử</h2><form id="leadForm">
+<label class="field" for="company">Tên đơn vị giả lập *</label><input id="company" required maxlength="100" placeholder="Ví dụ: Doanh nghiệp Demo D" autocomplete="off">
+<label class="field" for="service">Nhóm dịch vụ</label><select id="service"><option>AI & Automation</option><option>EduTech K12</option><option>IT Outsourcing</option></select>
+<label class="field" for="stage">Trạng thái</label><select id="stage"><option>Mới</option><option>Đang trao đổi</option><option>Đã báo giá</option></select>
+<label class="field" for="amount">Giá trị giả lập (VNĐ)</label><input id="amount" type="number" value="1000000" min="0" max="1000000000000">
+<div class="buttons"><button class="action" type="submit">Thêm cơ hội thử</button></div></form></div>
+<div class="panel"><h2>Danh sách cơ hội</h2><label class="field" for="stageFilter">Lọc trạng thái</label><select id="stageFilter"><option value="all">Tất cả</option><option>Mới</option><option>Đang trao đổi</option><option>Đã báo giá</option></select>
+<div class="table-wrap"><table><thead><tr><th>Đơn vị mẫu</th><th>Dịch vụ</th><th>Trạng thái</th><th>Giá trị</th><th></th></tr></thead><tbody id="leadRows"></tbody></table></div>
+<div class="buttons"><button id="resetDemo" type="button" class="action secondary">Khôi phục demo</button></div><p id="feedback" role="status" aria-live="polite"></p><p class="info">Dữ liệu chỉ tồn tại trong bộ nhớ trang hiện tại và mất khi tải lại. Không dùng cho khách hàng thật.</p></div></div></section></main>
+<footer class="footer"><div class="shell"><span>© GMTECH · Công nghệ & Giáo dục</span><span>Prototype miễn phí · Không gửi dữ liệu demo lên máy chủ</span><a href="/#contact">Liên hệ tư vấn ↗</a></div></footer>
+<script src="/trai-nghiem/demo.js" defer></script></body></html>
