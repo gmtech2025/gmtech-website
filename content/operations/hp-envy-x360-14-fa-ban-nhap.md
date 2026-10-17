@@ -1,6 +1,6 @@
 # HP Envy x360 14-fa — nội dung chờ duyệt
 
-Trạng thái: chưa công bố. Bản ghi content/products/hp-envy-x360-14-fa.md đặt published=false; chưa đưa vào danh mục hoặc kết quả tìm kiếm.
+Trạng thái: nội dung sản phẩm được duyệt qua PR #18. Bản ghi sản phẩm bật xuất bản trong PR tiếp nối để bổ sung màn hình Full HD do chủ GMTECH xác nhận. Bài mạng xã hội vẫn chỉ là bản chuẩn bị, chưa được gửi hoặc đăng.
 
 ## Bài mạng xã hội dự kiến
 
