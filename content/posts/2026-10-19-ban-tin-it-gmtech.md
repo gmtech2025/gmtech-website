@@ -3,7 +3,7 @@ title: "Bản tin IT GMTECH 19/10/2026: Windows, bảo mật mạng và công c�
 date: "2026-10-19T08:14:00+07:00"
 published: true
 description: "Bốn cập nhật từ Microsoft, Fortinet và Cloudflare trong tuần 12–18/10/2026: vòng đời Windows, chứng nhận bảo mật công nghiệp và công cụ triển khai ứng dụng."
-thumbnail: "/assets/uploads/cybersecurity-network-dashboard.png"
+thumbnail: "/assets/uploads/ban-tin-it-gmtech-2026-10-19.png"
 category_parent: "giai-phap-doanh-nghiep"
 category_child: "Bản tin IT doanh nghiệp"
 tags:
