@@ -9,7 +9,7 @@ const bar=sharing(title,url,true);
 assert(bar.includes(FACEBOOK.replaceAll('&','&amp;')));
 assert(bar.includes('u=https%3A%2F%2Fgmtech.win%2Fsan-pham%2Ftest%2F'));
 for(const html of [catalogPage({title:'Test',slug:'test',description:'Specific product',image:'/assets/a.jpg',body:'Test'},'products'),articlePage({title:'Post',slug:'post',description:'Specific article',thumbnail:'/assets/post.jpg',html:'<p>Post</p>'})]){
- assert(html.includes('property="og:image"'));assert(html.includes('data-copy-link'));assert(html.includes('floating-facebook'));assert(html.includes('/js/social-sharing.js'));
+ assert(html.includes('property="og:image"'));assert(html.includes('data-copy-link'));assert(html.includes('floating-messenger'));assert(html.includes('/js/social-sharing.js'));
 }
 const source=fs.readFileSync('js/social-sharing.js','utf8');
 async function client(navigator){

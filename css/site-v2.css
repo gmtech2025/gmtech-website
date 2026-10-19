@@ -179,3 +179,9 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#e7
 @media(max-width:540px){#gmtech-site .hero-contact .p-cta{flex:1 1 100%}#gmtech-site .floating-contact{left:10px;right:10px;justify-content:center;flex-wrap:nowrap}#gmtech-site .floating-contact a{flex:1 1 0;min-width:0;padding:10px 7px;font-size:11px;gap:5px}#gmtech-site .floating-contact .cta-icon{width:16px;height:16px;flex-basis:16px}#gmtech-site .p-endbar{padding-bottom:90px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#gmtech-site .p-cta,#gmtech-site .floating-contact a{transition:none;transform:none}}
 #gmtech-site .hero-more{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* Compact vertical contact dock; main page and product CTAs retain their layout. */
+#gmtech-site .floating-contact{flex-direction:column;align-items:stretch;flex-wrap:nowrap;left:auto;right:max(14px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:142px;gap:8px}
+#gmtech-site .floating-contact a{flex:none;justify-content:flex-start;min-height:46px;padding:11px 14px;white-space:nowrap}
+#gmtech-site .floating-contact .floating-messenger{background:linear-gradient(135deg,#3156c8,#6246b5);color:#fff}
+@media(max-width:540px){#gmtech-site .floating-contact{width:116px;left:auto;right:max(10px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));gap:6px}#gmtech-site .floating-contact a{flex:none;min-height:44px;font-size:11px;padding:10px;gap:6px}#gmtech-site .floating-contact .cta-icon{width:16px;height:16px;flex-basis:16px}}
