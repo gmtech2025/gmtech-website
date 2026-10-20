@@ -2,13 +2,14 @@
 const FACEBOOK='https://www.facebook.com/people/GMTech/61574250304753/';
 const MESSENGER='https://m.me/61574250304753';
 const ZALO='https://zalo.me/0908215486';
+const {documentTitle}=require('./seo');
 const escape=value=>String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function metadata(title,url,meta={}){
  const canonical='https://gmtech.win'+url;
- const description=meta.description||'GMTECH — Giải pháp CNTT, laptop và hỗ trợ doanh nghiệp tại Quảng Ngãi. Liên hệ 0908 215 486.';
+ const description=String(meta.seo_description||'').trim()||meta.description||'GMTECH — Giải pháp CNTT, laptop và hỗ trợ doanh nghiệp tại Quảng Ngãi. Liên hệ 0908 215 486.';
  const image=meta.image||'/assets/gmtech-logo.png';
  const absoluteImage=image.startsWith('https://')?image:'https://gmtech.win'+image;
- return `<meta name="description" content="${escape(description)}"><meta property="og:site_name" content="GMTECH"><meta property="og:locale" content="vi_VN"><meta property="og:type" content="${meta.type==='article'?'article':'website'}"><meta property="og:title" content="${escape(title)} | GMTECH"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:image" content="${escape(absoluteImage)}"><meta property="og:image:alt" content="${escape(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)} | GMTECH"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(absoluteImage)}">`;
+ return `<meta name="description" content="${escape(description)}"><meta property="og:site_name" content="GMTECH"><meta property="og:locale" content="vi_VN"><meta property="og:type" content="${meta.type==='article'?'article':'website'}"><meta property="og:title" content="${escape(documentTitle(title,meta.seo_title))}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:image" content="${escape(absoluteImage)}"><meta property="og:image:alt" content="${escape(meta.image_alt||title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(documentTitle(title,meta.seo_title))}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(absoluteImage)}">`;
 }
 function sharing(title,route,product=false){
  const url='https://gmtech.win'+route;

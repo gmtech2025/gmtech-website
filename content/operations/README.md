@@ -23,3 +23,6 @@ Giá dịch vụ; thuế và thông tin hóa đơn; điều khoản thanh toán;
 
 ## Lưu trữ
 Đây chỉ là các mẫu trống, không nhập thông tin khách hàng, mật khẩu, dữ liệu doanh thu hoặc giá vốn thật vào kho mã nguồn. Build hiện tại loại thư mục `content` khỏi bản website, chỉ đọc ba bộ sưu tập posts/products/services; các mẫu này không được xuất thành trang công khai. Kho GitHub vẫn có thể được người khác đọc tùy quyền truy cập.
+
+## Đăng nội dung và SEO
+Xem [Quy chuẩn đăng nội dung SEO](06-quy-chuan-dang-noi-dung-seo.md) trước khi đăng bài, dịch vụ hoặc sản phẩm qua Decap CMS.

@@ -32,3 +32,6 @@ jobs:
           test -f dist/data/products.json
           test -f dist/data/services.json
           node -e "const fs=require('fs');for(const f of ['products','services']){const data=JSON.parse(fs.readFileSync('dist/data/'+f+'.json'));if(!Array.isArray(data))throw new Error(f+' is not an array')}"
+
+      - name: Verify SEO, images and existing features
+        run: npm test

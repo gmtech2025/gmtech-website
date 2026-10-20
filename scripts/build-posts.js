@@ -1,6 +1,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const matter = require("gray-matter");
+const grayMatter = require("gray-matter");
+const yaml = require("js-yaml");
+const matter = source => grayMatter(source, {engines:{yaml:{parse:yaml.load,stringify:yaml.dump}}});
 const { marked } = require("marked");
 const sanitizeHtml = require("sanitize-html");
 const site = require("./build-layout");
@@ -43,6 +45,7 @@ function cleanHtml(html) {
     allowProtocolRelative: false,
     disallowedTagsMode: "discard",
     transformTags: {
+      h1: "h2",
       a: sanitizeHtml.simpleTransform("a", {
         target: "_blank",
         rel: "noopener noreferrer"
@@ -172,6 +175,9 @@ const posts = findMarkdownFiles(postsDir).map((file) => {
     date: toValidDate(data.date),
     published: data.published !== false && String(data.published).toLowerCase() !== "false",
     is_sample: data.is_sample === true || String(data.is_sample).toLowerCase() === "true",
+    seo_title: String(data.seo_title || "").trim(),
+    seo_description: String(data.seo_description || "").trim(),
+    image_alt: String(data.image_alt || "").trim(),
     description: String(data.description || ""),
     thumbnail: safeThumbnail(data.thumbnail),
 
@@ -231,7 +237,10 @@ function buildCatalog(collectionName, outputName) {
       date: toValidDate(data.date),
       title: String(data.title || baseSlug),
       category: String(data.category || ""),
-      description: String(data.description || ""),
+      seo_title: String(data.seo_title || "").trim(),
+    seo_description: String(data.seo_description || "").trim(),
+    image_alt: String(data.image_alt || "").trim(),
+    description: String(data.description || ""),
       image: safeThumbnail(data.image),
       cpu: String(data.cpu || ""),
       ram: String(data.ram || ""),
@@ -286,3 +295,6 @@ require('./build-sitemap').writeSitemap(dist, {
   services: catalogEntries.services,
   legacy: legacyScope.window.GMTECH_POSTS || []
 });
+
+// Generate responsive derivatives in dist only; retain all original uploads.
+require("./build-images").optimizeSiteImages(dist).catch(error => { console.error(error); process.exitCode = 1; });
