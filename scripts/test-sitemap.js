@@ -7,6 +7,7 @@ const {sitemapRoutes,writeSitemap} = require('./build-sitemap');
 const original = {posts:[{slug:'published-post',published:true},{slug:'draft',published:false}],products:[{slug:'real-laptop'},{slug:'demo',is_sample:true}],services:[{slug:'it-service'}],legacy:[{url:'/bai-viet/legacy/'},{url:'https://other.example/'}]};
 assert(sitemapRoutes({posts:[{slug:'bài-viết-mới'}]}).includes('/bai-viet/'+encodeURIComponent('bài-viết-mới')+'/'));
 const routes = sitemapRoutes(original);
+assert(routes.includes('/quizmark/'));
 assert(routes.includes('/bai-viet/published-post/'));
 assert(!routes.some(route=>/draft|demo|other/.test(route)));
 const withNew = {...original,posts:[...original.posts,{slug:'new-cms-post'}]};
