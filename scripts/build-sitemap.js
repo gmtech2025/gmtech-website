@@ -6,7 +6,7 @@ const xmlEscape = value => value.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'
 
 // Use the same published collections as the page builder, never scan copied demos.
 function sitemapRoutes({posts=[], products=[], services=[], legacy=[]}) {
-  const routes = ['/', '/dich-vu/', '/san-pham/', '/kien-thuc/'];
+  const routes = ['/', '/dich-vu/', '/san-pham/', '/kien-thuc/', '/quizmark/'];
   for (const [items, section] of [[posts,'bai-viet'], [products.filter(item=>!item.is_sample),'san-pham'], [services,'dich-vu']]) {
     for (const item of items) {
       if (item.published === false) continue;
