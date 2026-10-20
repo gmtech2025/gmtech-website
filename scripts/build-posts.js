@@ -278,3 +278,11 @@ for (const item of legacyScope.window.GMTECH_POSTS || []) {
 }
 
 site.writeIndexPages({dist,posts,products:catalogEntries.products,services:catalogEntries.services,legacy:legacyScope.window.GMTECH_POSTS||[]});
+
+// Regenerate discovery URLs after every CMS build using only published content.
+require('./build-sitemap').writeSitemap(dist, {
+  posts,
+  products: catalogEntries.products,
+  services: catalogEntries.services,
+  legacy: legacyScope.window.GMTECH_POSTS || []
+});
