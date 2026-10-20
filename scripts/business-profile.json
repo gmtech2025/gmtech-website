@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ComputerStore",
+  "@id": "https://gmtech.win/#business",
+  "name": "GMTECH",
+  "legalName": "Công ty TNHH Công Nghệ & Giáo Dục GMTECH",
+  "url": "https://gmtech.win/",
+  "image": "https://gmtech.win/assets/gmtech-logo.png",
+  "telephone": "+84908215486",
+  "email": "contact@gmtech.win",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "82/34 Lê Lợi, Phường Cẩm Thành",
+    "addressRegion": "Quảng Ngãi",
+    "addressCountry": "VN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 15.1120988,
+    "longitude": 108.8059969
+  },
+  "hasMap": "https://www.google.com/maps/place/GMTECH+(C%C3%B4ng+ngh%E1%BB%87+th%C3%B4ng+tin)/data=!4m2!3m1!1s0x0:0x7a7109e1f22336a1?sa=X&ved=1t:2428&hl=vi&ictx=111",
+  "sameAs": [
+    "https://www.facebook.com/people/GMTech/61574250304753/",
+    "https://www.google.com/maps/place/GMTECH+(C%C3%B4ng+ngh%E1%BB%87+th%C3%B4ng+tin)/data=!4m2!3m1!1s0x0:0x7a7109e1f22336a1?sa=X&ved=1t:2428&hl=vi&ictx=111"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:30",
+      "closes": "17:30"
+    }
+  ]
+}
