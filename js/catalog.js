@@ -17,9 +17,9 @@
       return data;
     } finally { clearTimeout(timeout); }
   }
-  function image(src, title) {
+  function image(src, title, item = {}) {
     const valid = safeImage(src);
-    return valid ? '<img class="catalog-image" loading="lazy" decoding="async" src="' + esc(valid) + '" alt="' + esc(title) + '">'
+    return valid ? '<img class="catalog-image" loading="lazy" decoding="async" src="' + esc(valid) + '"' + (item.image_srcset ? ' srcset="' + esc(item.image_srcset) + '" sizes="(max-width: 540px) 100vw, (max-width: 900px) 50vw, 400px" width="' + esc(item.image_width) + '" height="' + esc(item.image_height) + '"' : '') + ' alt="' + esc(title) + '">'
       : '<div class="catalog-image-placeholder" aria-hidden="true">GMTECH</div>';
   }
   function modal(title, body) {
@@ -55,7 +55,7 @@
       card.className = "catalog-card";
       const sample = p.is_sample ? '<span class="catalog-badge sample">Sản phẩm minh họa</span>' : "";
       const price = p.is_sample ? "Liên hệ xác nhận" : (p.price ? esc(p.price) : "Liên hệ");
-      card.innerHTML = image(p.image, p.title) +
+      card.innerHTML = image(p.image, p.image_alt || p.title, p) +
         '<div class="catalog-body"><div class="catalog-badges"><span class="catalog-badge">' + esc(p.category || "Laptop") + '</span>' + sample + '</div><h3><a href="' + detailUrl('san-pham', p) + '">' + esc(p.title) + '</a></h3><p>' + esc(p.description) + '</p>' +
         specs(p) + '<div class="catalog-foot"><span class="catalog-price">' + price + '</span></div><div class="catalog-actions"><a class="catalog-detail" href="' + detailUrl('san-pham', p) + '">Xem cấu hình</a><a class="catalog-zalo" href="' + zalo + '" target="_blank" rel="noopener noreferrer" aria-label="Tư vấn Zalo về ' + esc(p.title) + '">Tư vấn qua Zalo ↗</a></div></div>';
       root.append(card);

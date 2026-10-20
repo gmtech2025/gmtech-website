@@ -34,7 +34,12 @@
         const img = document.createElement("img");
         img.className = "gmtech-article-image";
         img.src = post.thumbnail;
-        img.alt = post.title || "Ảnh bài viết GMTECH";
+        if (post.image_srcset) {
+          img.srcset = post.image_srcset;
+          img.sizes = "(max-width: 540px) 100vw, (max-width: 900px) 50vw, 400px";
+          img.width = post.image_width; img.height = post.image_height;
+        }
+        img.alt = post.image_alt || post.title || "Ảnh bài viết GMTECH";
         img.loading = "lazy";
         img.decoding = "async";
         img.addEventListener("error", () => {

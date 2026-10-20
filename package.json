@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-posts.js"
+    "build": "node scripts/build-posts.js",
+    "test": "node scripts/test-social.js && node scripts/test-sitemap.js && node scripts/test-latest-updates.js && node scripts/test-seo.js"
   },
   "dependencies": {
+    "cheerio": "1.0.0",
     "gray-matter": "^4.0.3",
+    "js-yaml": "4.3.2",
     "marked": "^15.0.7",
-    "sanitize-html": "^2.17.0"
+    "sanitize-html": "^2.17.0",
+    "sharp": "0.35.5"
+  },
+  "overrides": {
+    "gray-matter": {
+      "js-yaml": "4.3.2"
+    }
   }
 }

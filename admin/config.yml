@@ -23,11 +23,14 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Tên sản phẩm", name: "title", widget: "string" }
+      - { label: "Tiêu đề SEO (tùy chọn)", name: "seo_title", widget: "string", required: false, hint: "Để trống để dùng tiêu đề chính. Không cần thêm | GMTECH. Không bắt buộc chèn địa danh vào mọi bài." }
+      - { label: "Mô tả SEO (tùy chọn)", name: "seo_description", widget: "text", required: false, hint: "Để trống để dùng mô tả ngắn. Viết riêng cho trang, đúng nội dung; không nhồi từ khóa hoặc bắt buộc số điện thoại." }
       - { label: "Ngày đăng sản phẩm", name: "date", widget: "datetime", hint: "Giữ nguyên khi sửa giá hoặc nội dung; dùng để sắp xếp sản phẩm mới trên trang chủ." }
       - { label: "Mã sản phẩm", name: "sku", widget: "string", required: false }
       - { label: "Danh mục", name: "category", widget: "select", options: ["Laptop", "Máy tính để bàn", "Linh kiện", "Phụ kiện", "Thiết bị mạng", "Khác"] }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Ảnh", name: "image", widget: "image", required: false }
+      - { label: "Mô tả ảnh đại diện (alt)", name: "image_alt", widget: "string", required: false, hint: "Mô tả đúng ảnh để hỗ trợ người đọc dùng trình đọc màn hình; để trống sẽ dùng tiêu đề. Không cần lặp từ khóa địa phương." }
       - { label: "CPU (thông số nhanh)", name: "cpu", widget: "string", required: false }
       - { label: "RAM (thông số nhanh)", name: "ram", widget: "string", required: false }
       - { label: "Ổ lưu trữ (thông số nhanh)", name: "storage", widget: "string", required: false }
@@ -47,6 +50,8 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Tên dịch vụ", name: "title", widget: "string" }
+      - { label: "Tiêu đề SEO (tùy chọn)", name: "seo_title", widget: "string", required: false, hint: "Để trống để dùng tiêu đề chính. Không cần thêm | GMTECH. Không bắt buộc chèn địa danh vào mọi bài." }
+      - { label: "Mô tả SEO (tùy chọn)", name: "seo_description", widget: "text", required: false, hint: "Để trống để dùng mô tả ngắn. Viết riêng cho trang, đúng nội dung; không nhồi từ khóa hoặc bắt buộc số điện thoại." }
       - { label: "Nhóm dịch vụ", name: "category", widget: "select", options: ["IT Outsourcing", "Hạ tầng mạng", "An toàn thông tin", "Máy chủ & lưu trữ", "Sửa chữa & bảo trì", "Phần mềm & tự động hóa", "Đào tạo"] }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Biểu tượng (ký tự)", name: "icon", widget: "string", required: false }
@@ -63,10 +68,13 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Tiêu đề SEO (tùy chọn)", name: "seo_title", widget: "string", required: false, hint: "Để trống để dùng tiêu đề chính. Không cần thêm | GMTECH. Không bắt buộc chèn địa danh vào mọi bài." }
+      - { label: "Mô tả SEO (tùy chọn)", name: "seo_description", widget: "text", required: false, hint: "Để trống để dùng mô tả ngắn. Viết riêng cho trang, đúng nội dung; không nhồi từ khóa hoặc bắt buộc số điện thoại." }
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
       - { label: "Hiển thị trên website", name: "published", widget: "boolean", default: true, required: false }
       - { label: "Mô tả ngắn", name: "description", widget: "text" }
       - { label: "Ảnh đại diện", name: "thumbnail", widget: "image", required: false }
+      - { label: "Mô tả ảnh đại diện (alt)", name: "image_alt", widget: "string", required: false, hint: "Mô tả đúng ảnh để hỗ trợ người đọc dùng trình đọc màn hình; để trống sẽ dùng tiêu đề. Không cần lặp từ khóa địa phương." }
 
       - label: "Danh mục cha"
         name: "category_parent"
