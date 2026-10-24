@@ -5,6 +5,8 @@ seo_description: "Dell Latitude 7320 Core i5 thế hệ 11 vPro, RAM 16GB, SSD 2
 date: 2026-10-24T16:00:00+07:00
 sku: ""
 category: "Laptop"
+image: "/assets/uploads/dell-latitude-7320/dell-latitude-7320-minh-hoa.png"
+image_alt: "Ảnh minh họa dòng Dell Latitude 7320 từ Dell, góc nhìn mặt trước; không phải ảnh máy đang bán"
 description: "Dell Latitude 7320 Core i5 thế hệ 11 vPro, RAM 16GB, SSD 256GB, màn hình 13 inch cảm ứng. Máy đã qua sử dụng, ngoại hình khoảng 98% theo đánh giá GMTECH. Giá 7.300.000đ."
 cpu: "Intel Core i5 thế hệ 11, vPro"
 ram: "16GB"
@@ -15,6 +17,8 @@ availability: "contact"
 is_sample: false
 published: true
 ---
+*Ảnh đại diện và ảnh bên dưới là ảnh minh họa dòng Dell Latitude 7320 từ [Dell](https://www.dell.com/en-us/shop/2-in-1-laptops-tablets/spd/latitude-13-7320-2-in-1-laptop), không phải ảnh thực tế chiếc máy đang bán. Màu vỏ, bàn phím và chi tiết có thể khác theo cấu hình; ảnh không thể hiện mức ngoại hình 98% hoặc tình trạng pin của máy tại GMTECH.*
+
 ## Laptop cho công việc và học tập hằng ngày
 
 Bạn đang tìm một chiếc laptop để làm việc văn phòng, soạn giáo án, học trực tuyến hoặc xử lý tài liệu? **Dell Latitude 7320** với bộ xử lý Intel Core i5 thế hệ 11, RAM 16GB và ổ SSD 256GB là cấu hình đáng cân nhắc trong ngân sách **7.300.000đ**.
@@ -43,6 +47,12 @@ Mức ngoại hình 98% là đánh giá tham khảo. Thông tin pin 100% không 
 - **Bao test 7 ngày, bảo hành 3 tháng.**
 - Tặng kèm **chuột không dây và túi chống sốc**.
 - Liên hệ để xác nhận máy còn sẵn và điều kiện bao test, bảo hành trước giao dịch.
+
+## Hình ảnh tham khảo dòng máy
+
+![Ảnh minh họa Dell Latitude 7320 từ Dell, góc nhìn bên phải; không phải ảnh máy đang bán](/assets/uploads/dell-latitude-7320/dell-latitude-7320-minh-hoa-phai.png)
+
+*Nguồn ảnh: Dell. Vui lòng liên hệ GMTECH để xem ảnh thực tế và kiểm tra chiếc máy trước giao dịch.*
 
 ## Xem máy và trao đổi cùng GMTECH
 
