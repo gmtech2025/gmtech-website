@@ -2,7 +2,7 @@
 title: "Razer Blade 15 Advanced 2018 — i7-8750H, RAM 16GB, SSD 1TB, GTX 1070 Max-Q"
 seo_title: "Razer Blade 15 2018 i7 GTX 1070 Max-Q tại Quảng Ngãi"
 seo_description: "Razer Blade 15 Advanced 2018 i7-8750H, RAM 16GB, SSD 1TB, GTX 1070 Max-Q. Giá 9.800.000đ tại GMTECH Quảng Ngãi. Hotline 0908 215 486."
-date: 2026-10-24T18:00:00+07:00
+date: 2026-10-24T17:43:08+07:00
 sku: ""
 category: "Laptop"
 description: "Razer Blade 15 Advanced 2018, Core i7-8750H, RAM 16GB, SSD 1TB, GTX 1070 Max-Q 8GB. Máy đã qua sử dụng, giá 9.800.000đ. Ảnh minh họa AI."
